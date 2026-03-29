@@ -1,429 +1,248 @@
 <!DOCTYPE html>
 <html lang="en">
-
-  <head>
-    <meta charset="UTF-8">
-    <title>V4 Wood Flooring: Home Page</title>
-    <link rel="stylesheet" href="https://public.codepenassets.com/css/reset-2.0.min.css">
-
-
-  </head>
-    
-  <body>
-  <!DOCTYPE html>
-<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>V4 Wood Flooring | Luxury Wood Interiors</title>
+    <title>V4 Wood Flooring | Luxury Engineered Wood Interiors</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', sans-serif; }
-        h1, h2, h3 { font-family: 'Playfair Display', serif; }
-        .step-pill.active { background-color: #78350f; color: white; }
-        /* Hide scrollbars but keep functionality */
+        body { font-family: 'Inter', sans-serif; overflow-x: hidden; scroll-behavior: smooth; }
+        h1, h2, h3, .font-serif { font-family: 'Playfair Display', serif; }
+        
+        /* Reveal Animation Styles */
+        .reveal { opacity: 0; transform: translateY(40px); transition: all 1s cubic-bezier(0.22, 1, 0.36, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        /* Custom Transition for Menu Links */
+        .nav-link-mobile { transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s ease; }
     </style>
 </head>
 <body class="bg-white text-stone-900">
 
-    <nav class="fixed w-full z-50 bg-white border-b border-stone-100">
-        <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
-            <button class="flex items-center space-x-2 group">
+    <div id="searchOverlay" class="fixed inset-0 z-[120] bg-stone-900/95 backdrop-blur-xl hidden flex items-center justify-center p-6">
+        <button onclick="toggleSearch()" class="absolute top-10 right-10 text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+        </button>
+        <div class="w-full max-w-2xl text-center">
+            <input type="text" placeholder="Search our collections..." class="w-full bg-transparent border-b border-stone-700 py-6 text-4xl text-white focus:outline-none focus:border-amber-700 transition font-serif italic">
+            <p class="text-stone-500 mt-6 uppercase tracking-[0.3em] text-[10px]">Discover finishes, guides, and inspiration</p>
+        </div>
+    </div>
+
+    <div id="mobileMenu" class="fixed inset-0 z-[110] bg-stone-950 text-white hidden flex flex-col p-10 overflow-y-auto">
+        <div class="flex justify-between items-center mb-20">
+            <div class="text-2xl font-bold tracking-tighter text-white">V4<span class="font-light text-stone-500 uppercase ml-1">Wood</span></div>
+            <button onclick="toggleMenu()" class="text-white"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
+        </div>
+
+        <nav class="flex flex-col space-y-8 text-4xl font-serif">
+            <a href="#" class="nav-link-mobile opacity-0 -translate-x-12 hover:italic">Home</a>
+            <div class="nav-link-mobile opacity-0 -translate-x-12">
+                <button onclick="toggleSubMenu()" class="flex items-center space-x-4 hover:italic">
+                    <span>About</span>
+                    <svg id="aboutArrow" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="transition-transform"><path d="m6 9 6 6 6-6"/></svg>
+                </button>
+                <div id="aboutSubMenu" class="hidden pl-6 mt-6 space-y-4 text-xl font-sans font-light text-stone-400">
+                    <a href="#" class="block hover:text-white">Our Heritage</a>
+                    <a href="#" class="block hover:text-white">Sustainability</a>
+                    <a href="#" class="block hover:text-white">The V4 Process</a>
+                </div>
+            </div>
+            <a href="#" class="nav-link-mobile opacity-0 -translate-x-12 hover:italic">Flooring</a>
+            <a href="#" class="nav-link-mobile opacity-0 -translate-x-12 hover:italic">Distributors</a>
+            <a href="#" class="nav-link-mobile opacity-0 -translate-x-12 hover:italic">Blog</a>
+            <a href="#" class="nav-link-mobile opacity-0 -translate-x-12 hover:italic">Contact</a>
+        </nav>
+
+        <div class="mt-auto pt-10 nav-link-mobile opacity-0 -translate-x-12">
+            <button onclick="toggleMenu(); openSampleModal();" class="w-full bg-white text-stone-950 py-5 uppercase tracking-widest text-xs font-bold">Request Sample Box</button>
+        </div>
+    </div>
+
+    <nav class="fixed w-full z-[100] bg-white/90 backdrop-blur-md border-b border-stone-100 h-24 flex items-center">
+        <div class="max-w-7xl mx-auto px-6 w-full flex items-center justify-between">
+            <button onclick="toggleMenu()" class="flex items-center space-x-3 group">
                 <div class="space-y-1.5">
                     <span class="block w-6 h-0.5 bg-stone-900 group-hover:w-8 transition-all"></span>
                     <span class="block w-8 h-0.5 bg-stone-900"></span>
-                    <span class="block w-5 h-0.5 bg-stone-900 group-hover:w-8 transition-all"></span>
                 </div>
-                <span class="hidden md:block text-xs uppercase tracking-[0.2em] font-medium pl-2">Menu</span>
+                <span class="hidden md:block text-[10px] uppercase tracking-[0.2em] font-bold">Explore</span>
             </button>
 
-            <div class="flex flex-col items-center">
-                <div class="text-2xl md:text-3xl font-bold tracking-tighter">V4<span class="font-light text-stone-400">WOODFLOORING</span></div>
-            </div>
+            <div class="text-2xl font-bold tracking-tighter">V4<span class="font-light text-stone-400 uppercase ml-1">Woodflooring</span></div>
 
-            <div class="flex items-center space-x-6">
-                <button class="hover:text-amber-800 transition">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            <div class="flex items-center space-x-8">
+                <button onclick="toggleSearch()" class="hover:text-amber-800 transition">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
                 </button>
-                <button onclick="openSampleModal()" class="hidden md:block bg-stone-900 text-white px-6 py-3 text-[10px] uppercase tracking-[0.2em] hover:bg-amber-900 transition">
-                    Request Sample Box
-                </button>
+                <button onclick="openSampleModal()" class="hidden md:block border border-stone-900 px-6 py-2.5 text-[10px] uppercase tracking-widest font-bold hover:bg-stone-900 hover:text-white transition">Sample Box</button>
             </div>
         </div>
     </nav>
 
-    <header class="relative h-[90vh] flex items-center pt-24">
-        <div class="absolute inset-0">
-            <img src="https://images.unsplash.com/photo-1581850518616-bcb8186c443e?auto=format&fit=crop&q=80&w=2000" class="w-full h-full object-cover" alt="Luxury Oak Flooring">
-            <div class="absolute inset-0 bg-gradient-to-r from-stone-900/40 to-transparent"></div>
-        </div>
-        <div class="relative z-10 max-w-7xl mx-auto px-6 w-full">
-            <div class="max-w-xl text-white">
-                <span class="text-xs uppercase tracking-[0.3em] mb-4 block">The Nature Collection</span>
-                <h1 class="text-5xl md:text-6xl mb-8 leading-[1.1]">Elegance Rooted in Nature.</h1>
-                <p class="text-lg font-light mb-10 text-stone-100">Experience the tactile beauty of sustainably sourced, precision-engineered British oak.</p>
-                <button class="bg-white text-stone-900 px-10 py-5 uppercase tracking-widest text-xs font-bold hover:bg-amber-50 transition">Explore the Collection</button>
-            </div>
-        </div>
-    </header>
-
-    <div id="sampleModal" class="fixed inset-0 z-[100] hidden flex items-center justify-center">
-        <div class="absolute inset-0 bg-stone-900/90 backdrop-blur-md" onclick="closeSampleModal()"></div>
-        <div class="relative bg-white w-full max-w-4xl h-[90vh] md:h-auto overflow-hidden flex flex-col md:flex-row shadow-2xl">
-            
-            <div class="hidden md:block w-1/3 bg-stone-100 relative">
-                <img src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?auto=format&fit=crop&q=80&w=800" class="absolute inset-0 w-full h-full object-cover opacity-80" alt="Wood Texture">
-                <div class="absolute inset-0 bg-amber-900/20"></div>
-                <div class="relative p-8 text-white h-full flex flex-col justify-end">
-                    <p class="text-2xl italic font-serif italic">"Quality you can feel."</p>
-                </div>
-            </div>
-
-            <div class="flex-1 p-8 md:p-12 overflow-y-auto">
-                <button onclick="closeSampleModal()" class="absolute top-6 right-6 text-stone-400 hover:text-stone-900">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
-                </button>
-
-                <div class="flex space-x-4 mb-10">
-                    <div id="pill-1" class="step-pill active px-4 py-1 border border-stone-200 text-[10px] uppercase tracking-widest transition-all">01. Selection</div>
-                    <div id="pill-2" class="step-pill px-4 py-1 border border-stone-200 text-[10px] uppercase tracking-widest transition-all text-stone-400">02. Details</div>
-                    <div id="pill-3" class="step-pill px-4 py-1 border border-stone-200 text-[10px] uppercase tracking-widest transition-all text-stone-400">03. Confirm</div>
-                </div>
-
-                <div id="step-1" class="step-content">
-                    <h2 class="text-3xl mb-2">Curate Your Box</h2>
-                    <p class="text-stone-500 mb-8">Select 3 finishes to be delivered to your door.</p>
-                    
-                    <div class="grid grid-cols-2 gap-4 mb-8">
-                        <label class="relative cursor-pointer group">
-                            <input type="checkbox" class="peer hidden" onchange="handleSelection(this)">
-                            <div class="border border-stone-200 p-4 peer-checked:border-amber-800 transition">
-                                <div class="aspect-video bg-stone-200 mb-3 overflow-hidden">
-                                    <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?w=400" class="object-cover w-full h-full" alt="Oak">
-                                </div>
-                                <p class="text-xs font-bold uppercase tracking-tighter">Natural Urban Oak</p>
-                            </div>
-                        </label>
-                        <label class="relative cursor-pointer">
-                            <input type="checkbox" class="peer hidden" onchange="handleSelection(this)">
-                            <div class="border border-stone-200 p-4 peer-checked:border-amber-800 transition">
-                                <div class="aspect-video bg-stone-200 mb-3 overflow-hidden">
-                                    <img src="https://images.unsplash.com/photo-1615876234886-fd9a39faa97f?w=400" class="object-cover w-full h-full" alt="Smoked">
-                                </div>
-                                <p class="text-xs font-bold uppercase tracking-tighter">Smoked Walnut</p>
-                            </div>
-                        </label>
-                        </div>
-                    
-                    <div class="flex justify-between items-center pt-6 border-t">
-                        <span class="text-sm font-medium"><span id="selection-count">0</span>/3 Selected</span>
-                        <button onclick="nextStep(2)" id="next-btn" disabled class="opacity-30 bg-stone-900 text-white px-8 py-3 uppercase tracking-widest text-[10px] font-bold">Next Step</button>
-                    </div>
-                </div>
-
-                <div id="step-2" class="step-content hidden">
-                    <h2 class="text-3xl mb-8">Where should we send them?</h2>
-                    <div class="space-y-4">
-                        <input type="text" placeholder="Full Name" class="w-full border-b border-stone-200 py-3 focus:outline-none focus:border-amber-800">
-                        <input type="email" placeholder="Email Address" class="w-full border-b border-stone-200 py-3 focus:outline-none focus:border-amber-800">
-                        <input type="text" placeholder="Shipping Address" class="w-full border-b border-stone-200 py-3 focus:outline-none focus:border-amber-800">
-                    </div>
-                    <div class="flex justify-between items-center pt-10 border-t mt-10">
-                        <button onclick="nextStep(1)" class="text-[10px] uppercase tracking-widest underline">Back</button>
-                        <button onclick="nextStep(3)" class="bg-stone-900 text-white px-8 py-3 uppercase tracking-widest text-[10px] font-bold">Complete Order</button>
-                    </div>
-                </div>
-
-                <div id="step-3" class="step-content hidden text-center py-10">
-                    <div class="w-16 h-16 bg-green-50 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6 italic text-2xl">✓</div>
-                    <h2 class="text-3xl mb-4">It's on the way!</h2>
-                    <p class="text-stone-500 mb-8">Your curated box is being prepared in our Hampshire warehouse. You'll receive a tracking link shortly.</p>
-                    <button onclick="closeSampleModal()" class="border border-stone-900 px-8 py-3 uppercase tracking-widest text-[10px] font-bold">Return to Site</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        let selected = 0;
-
-        function handleSelection(checkbox) {
-            if (checkbox.checked) {
-                if (selected >= 3) {
-                    checkbox.checked = false;
-                    return;
-                }
-                selected++;
-            } else {
-                selected--;
-            }
-            document.getElementById('selection-count').innerText = selected;
-            document.getElementById('next-btn').disabled = (selected < 1);
-            document.getElementById('next-btn').style.opacity = (selected < 1) ? "0.3" : "1";
-        }
-
-        function nextStep(step) {
-            document.querySelectorAll('.step-content').forEach(s => s.classList.add('hidden'));
-            document.querySelectorAll('.step-pill').forEach(p => p.classList.remove('active', 'text-stone-900'));
-            
-            document.getElementById('step-' + step).classList.remove('hidden');
-            for(let i=1; i<=step; i++) {
-                document.getElementById('pill-' + i).classList.add('active');
-            }
-        }
-
-        function openSampleModal() {
-            document.getElementById('sampleModal').classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeSampleModal() {
-            document.getElementById('sampleModal').classList.add('hidden');
-            document.body.style.overflow = 'auto';
-        }
-    </script>
-
-      <section class="py-32 bg-white">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex flex-col md:flex-row items-baseline justify-between mb-16 border-b border-stone-100 pb-8">
-                <div>
-                    <h2 class="text-xs uppercase tracking-[0.4em] text-amber-800 mb-4">The Selection</h2>
-                    <p class="text-4xl md:text-5xl">Our Signature <span class="italic font-serif">Styles</span></p>
-                </div>
-                <a href="#" class="mt-4 md:mt-0 text-xs uppercase tracking-widest font-bold border-b-2 border-amber-800 pb-1 hover:text-amber-800 transition">View Full Catalog</a>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-y-16 gap-x-8">
-                <div class="group cursor-pointer">
-                    <div class="relative aspect-[3/4] overflow-hidden mb-6">
-                        <img src="https://images.unsplash.com/photo-1581850518616-bcb8186c443e?auto=format&fit=crop&q=80&w=800" 
-                             alt="Engineered Oak Flooring" 
-                             class="w-full h-full object-cover group-hover:scale-110 transition duration-1000">
-                        <div class="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition duration-500"></div>
-                    </div>
-                    <h3 class="text-2xl mb-3">Engineered Oak</h3>
-                    <p class="text-stone-500 text-sm leading-relaxed mb-4">
-                        The gold standard of modern flooring. Multi-layered construction provides immense stability, allowing for wider planks and compatibility with underfloor heating without sacrificing the 6mm solid oak wear layer.
-                    </p>
-                    <span class="text-[10px] uppercase tracking-widest font-bold text-stone-400 group-hover:text-amber-800 transition">Discover Finishes →</span>
-                </div>
-
-                <div class="group cursor-pointer">
-                    <div class="relative aspect-[3/4] overflow-hidden mb-6">
-                        <img src="https://images.unsplash.com/photo-1615876234886-fd9a39faa97f?auto=format&fit=crop&q=80&w=800" 
-                             alt="Parquet Wood Flooring" 
-                             class="w-full h-full object-cover group-hover:scale-110 transition duration-1000">
-                        <div class="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition duration-500"></div>
-                    </div>
-                    <h3 class="text-2xl mb-3">Parquet & Patterns</h3>
-                    <p class="text-stone-500 text-sm leading-relaxed mb-4">
-                        Timeless geometric elegance. Our Herringbone and Chevron collections bring architectural interest to any space. Precision-milled for a seamless fit, available in tumbled or contemporary smooth finishes.
-                    </p>
-                    <span class="text-[10px] uppercase tracking-widest font-bold text-stone-400 group-hover:text-amber-800 transition">Explore Patterns →</span>
-                </div>
-
-                <div class="group cursor-pointer">
-                    <div class="relative aspect-[3/4] overflow-hidden mb-6">
-                        <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&q=80&w=800" 
-                             alt="Distressed Wood Flooring" 
-                             class="w-full h-full object-cover group-hover:scale-110 transition duration-1000">
-                        <div class="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition duration-500"></div>
-                    </div>
-                    <h3 class="text-2xl mb-3">Reclaimed Artisan</h3>
-                    <p class="text-stone-500 text-sm leading-relaxed mb-4">
-                        Floors with a story. These planks feature hand-rolled edges, deep brushing, and natural knots. Designed to replicate the charm of century-old manor house floors with the durability of modern engineering.
-                    </p>
-                    <span class="text-[10px] uppercase tracking-widest font-bold text-stone-400 group-hover:text-amber-800 transition">View Artisan Series →</span>
+    <section class="relative h-[90vh] flex items-center pt-24">
+        <img src="https://images.pexels.com/photos/2724748/pexels-photo-2724748.jpeg?auto=compress&cs=tinysrgb&w=1600" class="absolute inset-0 w-full h-full object-cover" alt="Luxury Oak Floor">
+        <div class="absolute inset-0 bg-stone-900/20"></div>
+        <div class="relative z-10 max-w-7xl mx-auto px-6 w-full text-white">
+            <div class="max-w-2xl">
+                <h1 class="text-3xl md:text-4xl lg:text-5xl mb-6 leading-[1.1]">Sustainable Luxury <br><span class="italic font-serif font-normal">Rooted in Nature</span></h1>
+                <p class="text-sm md:text-base font-light mb-10 opacity-90 max-w-lg">Precision engineered British oak flooring designed to last a lifetime. Discover the perfect foundation for your home.</p>
+                <div class="flex space-x-4">
+                    <button class="bg-white text-stone-900 px-8 py-4 uppercase tracking-widest text-[10px] font-bold">View Collections</button>
                 </div>
             </div>
         </div>
     </section>
 
-      <section class="py-32 bg-stone-50 border-t border-stone-100">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16">
-                <div class="max-w-2xl">
-                    <h2 class="text-xs uppercase tracking-[0.4em] text-amber-800 mb-4">Local Expertise</h2>
-                    <p class="text-4xl md:text-5xl mb-6">Experience V4 in <span class="italic font-serif">Hampshire</span></p>
-                    <p class="text-stone-500 text-lg leading-relaxed">
-                        Our approved retail partners offer expert installation advice and the full range of V4 collections in a showroom environment.
-                    </p>
-                </div>
-                <div class="flex space-x-4 mt-8 md:mt-0">
-                    <button onclick="scrollDistributors(-1)" class="w-12 h-12 rounded-full border border-stone-300 flex items-center justify-center hover:bg-stone-900 hover:text-white transition">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
-                    </button>
-                    <button onclick="scrollDistributors(1)" class="w-12 h-12 rounded-full border border-stone-300 flex items-center justify-center hover:bg-stone-900 hover:text-white transition">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
-                    </button>
+    <section class="py-32 bg-stone-50 reveal">
+        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-20 items-center">
+            <div>
+                <span class="text-[10px] uppercase tracking-[0.4em] text-amber-800 font-bold block mb-6">Established 2002</span>
+                <h2 class="text-4xl md:text-5xl mb-8 leading-tight">Decades of <span class="italic font-serif">Craftsmanship</span></h2>
+                <div class="space-y-6 text-stone-600 leading-relaxed text-lg font-light">
+                    <p>V4 Wood Flooring is a family-run business based in the South of England. Our journey began with a simple mission: to provide the finest quality hardwood floors while maintaining a commitment to environmental stewardship.</p>
+                    <p>Every plank is a testament to our obsession with detail, from the selection of the raw timber to the hand-finished oils that bring the grain to life.</p>
                 </div>
             </div>
-
-            <div class="grid lg:grid-cols-12 gap-12">
-                <div id="dist-carousel" class="lg:col-span-5 flex overflow-x-auto lg:flex-col gap-6 no-scrollbar py-4">
-                    <div onclick="openDistributorModal('Winchester Wood Studio', 'Stockbridge Road, Winchester', '01962 843 000')" 
-                         class="min-w-[85%] lg:min-w-full bg-white p-8 shadow-sm border border-stone-100 hover:shadow-xl hover:-translate-y-1 transition-all cursor-pointer group">
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] uppercase tracking-widest text-amber-700 font-bold">Platinum Partner</span>
-                            <svg class="text-stone-300 group-hover:text-amber-700 transition" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                        </div>
-                        <h3 class="text-2xl mb-2">Winchester Wood Studio</h3>
-                        <p class="text-stone-500 text-sm">Our flagship Hampshire partner featuring the complete Design Collection.</p>
-                    </div>
-
-                    <div onclick="openDistributorModal('Basingstoke Flooring Co.', 'Worting Road, Basingstoke', '01256 320 111')" 
-                         class="min-w-[85%] lg:min-w-full bg-white p-8 shadow-sm border border-stone-100 hover:shadow-xl hover:-translate-y-1 transition-all cursor-pointer group">
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] uppercase tracking-widest text-stone-400 font-bold">Authorized Retailer</span>
-                        </div>
-                        <h3 class="text-2xl mb-2">Basingstoke Flooring Co.</h3>
-                        <p class="text-stone-500 text-sm">Specialists in engineered oak and professional domestic fitting.</p>
-                    </div>
-
-                    <div onclick="openDistributorModal('The Southampton Gallery', 'Shirley Road, Southampton', '02380 555 999')" 
-                         class="min-w-[85%] lg:min-w-full bg-white p-8 shadow-sm border border-stone-100 hover:shadow-xl hover:-translate-y-1 transition-all cursor-pointer group">
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="text-[10px] uppercase tracking-widest text-amber-700 font-bold">Platinum Partner</span>
-                        </div>
-                        <h3 class="text-2xl mb-2">The Southampton Gallery</h3>
-                        <p class="text-stone-500 text-sm">A dedicated luxury space for architects and interior designers.</p>
-                    </div>
+            <div class="relative grid grid-cols-12 gap-4">
+                <div class="col-span-7 pt-12">
+                    <img src="https://images.pexels.com/photos/1034584/pexels-photo-1034584.jpeg?auto=compress&w=600" class="w-full h-80 object-cover shadow-2xl" alt="Craft">
                 </div>
-
-                <div class="lg:col-span-7 relative h-[500px] bg-stone-200 rounded-sm overflow-hidden border border-stone-100">
-                    <img src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&q=80&w=1200" class="absolute inset-0 w-full h-full object-cover grayscale opacity-40" alt="Map area">
-                    
-                    <div class="absolute top-[30%] left-[45%] group cursor-pointer" onclick="openDistributorModal('Winchester Wood Studio', 'Stockbridge Road, Winchester', '01962 843 000')">
-                        <div class="w-4 h-4 bg-amber-800 rounded-full animate-ping absolute opacity-75"></div>
-                        <div class="w-4 h-4 bg-amber-800 rounded-full border-2 border-white relative shadow-lg"></div>
-                        <div class="absolute bottom-6 left-1/2 -translate-x-1/2 bg-white px-3 py-1 shadow-xl whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
-                            <span class="text-[10px] font-bold uppercase tracking-widest">Winchester</span>
-                        </div>
-                    </div>
-
-                    <div class="absolute top-[15%] left-[65%] group cursor-pointer" onclick="openDistributorModal('Basingstoke Flooring Co.', 'Worting Road, Basingstoke', '01256 320 111')">
-                        <div class="w-4 h-4 bg-stone-900 rounded-full border-2 border-white shadow-lg"></div>
-                        <div class="absolute bottom-6 left-1/2 -translate-x-1/2 bg-white px-3 py-1 shadow-xl whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">
-                            <span class="text-[10px] font-bold uppercase tracking-widest">Basingstoke</span>
-                        </div>
-                    </div>
+                <div class="col-span-5">
+                    <img src="https://images.pexels.com/photos/1350789/pexels-photo-1350789.jpeg?auto=compress&w=600" class="w-full h-96 object-cover shadow-2xl" alt="Interior">
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="py-32 bg-white">
+    <section class="py-32 bg-white reveal">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-20">
-                <h2 class="text-xs uppercase tracking-[0.4em] text-stone-400 mb-4">V4 Journal</h2>
-                <p class="text-4xl md:text-5xl italic font-serif">Living with Wood</p>
+                <h2 class="text-xs uppercase tracking-[0.4em] text-stone-400 mb-4">The Collections</h2>
+                <p class="text-4xl italic font-serif">Refined by Design</p>
             </div>
-
             <div class="grid md:grid-cols-3 gap-12">
-                <article class="group cursor-pointer">
-                    <div class="aspect-[4/5] overflow-hidden mb-6 bg-stone-100">
-                        <img src="https://images.unsplash.com/photo-1600607687940-4e7a6d953c1f?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" alt="Scandi Minimal">
-                    </div>
-                    <p class="text-[10px] uppercase tracking-widest text-amber-800 mb-3 font-bold">Design Trends</p>
-                    <h3 class="text-2xl mb-4 group-hover:underline decoration-stone-300">Sustainable Luxury: Why 2026 is the year of Recycled Oak</h3>
-                    <p class="text-stone-500 text-sm leading-relaxed">Discover how our new reclamation process is turning history into modern masterpieces...</p>
-                </article>
-
-                <article class="group cursor-pointer">
-                    <div class="aspect-[4/5] overflow-hidden mb-6 bg-stone-100">
-                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" alt="Installation">
-                    </div>
-                    <p class="text-[10px] uppercase tracking-widest text-amber-800 mb-3 font-bold">Expert Advice</p>
-                    <h3 class="text-2xl mb-4 group-hover:underline decoration-stone-300">Underfloor Heating: The Ultimate Guide for Wood Flooring</h3>
-                    <p class="text-stone-500 text-sm leading-relaxed">Everything you need to know about efficiency, temperatures, and wood species compatibility...</p>
-                </article>
-
-                <article class="group cursor-pointer">
-                    <div class="aspect-[4/5] overflow-hidden mb-6 bg-stone-100">
-                        <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" alt="Luxury Home">
-                    </div>
-                    <p class="text-[10px] uppercase tracking-widest text-amber-800 mb-3 font-bold">Inspiration</p>
-                    <h3 class="text-2xl mb-4 group-hover:underline decoration-stone-300">Project Spotlight: A Hampshire Penthouse Transformation</h3>
-                    <p class="text-stone-500 text-sm leading-relaxed">Tour a stunning coastal home featuring our bespoke wide-plank Chevron collection...</p>
-                </article>
+                <div class="group cursor-pointer">
+                    <div class="aspect-[3/4] overflow-hidden mb-8"><img src="https://images.pexels.com/photos/3316918/pexels-photo-3316918.jpeg?auto=compress&w=800" class="w-full h-full object-cover group-hover:scale-105 transition duration-700"></div>
+                    <h3 class="text-2xl mb-4">Engineered Oak</h3>
+                    <p class="text-stone-500 text-sm leading-relaxed">Stable, durable, and compatible with modern heating systems without losing the soul of natural wood.</p>
+                </div>
+                <div class="group cursor-pointer">
+                    <div class="aspect-[3/4] overflow-hidden mb-8"><img src="https://images.pexels.com/photos/129731/pexels-photo-129731.jpeg?auto=compress&w=800" class="w-full h-full object-cover group-hover:scale-105 transition duration-700"></div>
+                    <h3 class="text-2xl mb-4">Geometric Parquet</h3>
+                    <p class="text-stone-500 text-sm leading-relaxed">Herringbone and Chevron patterns that bring timeless architectural rhythm to contemporary living spaces.</p>
+                </div>
+                <div class="group cursor-pointer">
+                    <div class="aspect-[3/4] overflow-hidden mb-8"><img src="https://images.pexels.com/photos/1722183/pexels-photo-1722183.jpeg?auto=compress&w=800" class="w-full h-full object-cover group-hover:scale-105 transition duration-700"></div>
+                    <h3 class="text-2xl mb-4">Artisan Reclaimed</h3>
+                    <p class="text-stone-500 text-sm leading-relaxed">Hand-finished textures and deep grains that replicate the character of centuries-old manor flooring.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <footer class="bg-stone-900 text-stone-400 py-20">
-        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-12">
-            <div class="col-span-2">
-                <div class="text-2xl font-bold tracking-tighter text-white mb-6">V4<span class="font-light text-stone-500">WOODFLOORING</span></div>
-                <p class="max-w-sm mb-8">Redefining the standard for luxury engineered wood flooring across the United Kingdom since 2002.</p>
-            </div>
-            <div>
-                <h4 class="text-white uppercase tracking-widest text-xs font-bold mb-6">Explore</h4>
-                <ul class="space-y-4 text-sm">
-                    <li><a href="#" class="hover:text-white transition">All Collections</a></li>
-                    <li><a href="#" class="hover:text-white transition">Hampshire Showrooms</a></li>
-                    <li><a href="#" class="hover:text-white transition">Professional Portal</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="text-white uppercase tracking-widest text-xs font-bold mb-6">Contact</h4>
-                <ul class="space-y-4 text-sm">
-                    <li>Sales: 01276 488 099</li>
-                    <li>Email: info@v4woodflooring.co.uk</li>
-                    <li>Head Office: Surrey, UK</li>
-                </ul>
+    <section class="py-32 bg-stone-50 reveal">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-4xl mb-12">Visit us in <span class="italic font-serif text-stone-400">Hampshire</span></h2>
+            <div class="grid lg:grid-cols-12 gap-8">
+                <div id="dist-carousel" class="lg:col-span-4 flex lg:flex-col gap-4 overflow-x-auto no-scrollbar py-2">
+                    <div onclick="openDistModal('Winchester Studio')" class="min-w-[300px] bg-white p-8 border border-stone-100 hover:shadow-xl transition cursor-pointer">
+                        <span class="text-[10px] uppercase tracking-widest text-amber-800 font-bold mb-2 block">Platinum Retailer</span>
+                        <h3 class="text-xl mb-2">Winchester Wood Studio</h3>
+                        <p class="text-stone-400 text-xs italic">Expert installation & display gallery</p>
+                    </div>
+                    <div onclick="openDistModal('Southampton Gallery')" class="min-w-[300px] bg-white p-8 border border-stone-100 hover:shadow-xl transition cursor-pointer">
+                        <span class="text-[10px] uppercase tracking-widest text-stone-400 font-bold mb-2 block">Authorized Partner</span>
+                        <h3 class="text-xl mb-2">Southampton Wood Gallery</h3>
+                        <p class="text-stone-400 text-xs italic">Architectural specs and samples</p>
+                    </div>
+                </div>
+                <div class="lg:col-span-8 bg-stone-200 h-[400px] relative overflow-hidden group rounded-sm">
+                    <img src="https://images.pexels.com/photos/2246476/pexels-photo-2246476.jpeg?auto=compress&w=1200" class="w-full h-full object-cover grayscale opacity-50" alt="Map">
+                    <div class="absolute top-1/2 left-1/3 w-4 h-4 bg-amber-800 rounded-full animate-ping"></div>
+                    <div onclick="openDistModal('Winchester Studio')" class="absolute top-1/2 left-1/3 w-4 h-4 bg-amber-800 rounded-full border-2 border-white shadow-xl cursor-pointer"></div>
+                </div>
             </div>
         </div>
-    </footer>
+    </section>
 
-    <div id="distModal" class="fixed inset-0 z-[110] hidden flex items-center justify-center p-6">
-        <div class="absolute inset-0 bg-stone-900/90 backdrop-blur-md" onclick="closeDistModal()"></div>
-        <div class="relative bg-white max-w-lg w-full p-10 shadow-2xl">
-            <button onclick="closeDistModal()" class="absolute top-6 right-6 hover:rotate-90 transition-transform">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
-            </button>
-            <h2 id="dist-name" class="text-3xl mb-4 font-serif italic">Showroom Details</h2>
-            <div class="space-y-6">
-                <div>
-                    <p class="text-[10px] uppercase tracking-widest text-stone-400 mb-1">Address</p>
-                    <p id="dist-address" class="text-stone-800">123 Street, Town, Hampshire</p>
+    <div id="sampleModal" class="fixed inset-0 z-[150] hidden flex items-center justify-center p-4">
+        <div class="absolute inset-0 bg-stone-950/90 backdrop-blur-sm" onclick="closeSampleModal()"></div>
+        <div class="relative bg-white w-full max-w-xl shadow-2xl overflow-hidden">
+            <div class="p-10">
+                <div id="step-1" class="step-content">
+                    <h2 class="text-3xl font-serif mb-6">Select 3 Samples</h2>
+                    <div class="grid grid-cols-3 gap-4 mb-10">
+                        <div class="cursor-pointer border-2 border-stone-100 p-1 hover:border-amber-800 transition" onclick="this.classList.toggle('border-amber-800')"><img src="https://images.pexels.com/photos/1034584/pexels-photo-1034584.jpeg?auto=compress&w=200" class="aspect-square object-cover"></div>
+                        <div class="cursor-pointer border-2 border-stone-100 p-1 hover:border-amber-800 transition" onclick="this.classList.toggle('border-amber-800')"><img src="https://images.pexels.com/photos/3316918/pexels-photo-3316918.jpeg?auto=compress&w=200" class="aspect-square object-cover"></div>
+                        <div class="cursor-pointer border-2 border-stone-100 p-1 hover:border-amber-800 transition" onclick="this.classList.toggle('border-amber-800')"><img src="https://images.pexels.com/photos/129731/pexels-photo-129731.jpeg?auto=compress&w=200" class="aspect-square object-cover"></div>
+                    </div>
+                    <button onclick="nextStep(2)" class="w-full bg-stone-900 text-white py-5 uppercase tracking-widest text-xs font-bold">Shipping Details →</button>
                 </div>
-                <div>
-                    <p class="text-[10px] uppercase tracking-widest text-stone-400 mb-1">Telephone</p>
-                    <p id="dist-phone" class="text-stone-800">01000 000 000</p>
+                <div id="step-2" class="step-content hidden">
+                    <h2 class="text-3xl font-serif mb-6">Where shall we send them?</h2>
+                    <input type="text" placeholder="Full Name" class="w-full border-b border-stone-200 py-4 mb-4 focus:outline-none focus:border-amber-800 font-light">
+                    <input type="text" placeholder="Delivery Address" class="w-full border-b border-stone-200 py-4 mb-10 focus:outline-none focus:border-amber-800 font-light">
+                    <button onclick="closeSampleModal()" class="w-full bg-amber-900 text-white py-5 uppercase tracking-widest text-xs font-bold">Request Box</button>
                 </div>
-                <div class="bg-stone-50 p-4">
-                    <p class="text-xs italic leading-relaxed">"This showroom features our latest interactive display stands and the full 2026 Nature Collection."</p>
-                </div>
-                <button class="w-full bg-stone-900 text-white py-4 uppercase tracking-[0.2em] text-[10px] font-bold hover:bg-amber-900 transition">Contact Showroom</button>
             </div>
         </div>
     </div>
 
     <script>
-        function scrollDistributors(dir) {
-            const carousel = document.getElementById('dist-carousel');
-            carousel.scrollBy({ left: dir * 300, behavior: 'smooth' });
+        // Reveal on Scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Mobile Menu Toggle with Staggered Link Animation
+        function toggleMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const links = document.querySelectorAll('.nav-link-mobile');
+            const isOpening = menu.classList.contains('hidden');
+
+            if (isOpening) {
+                menu.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+                links.forEach((link, i) => {
+                    setTimeout(() => {
+                        link.classList.remove('opacity-0', '-translate-x-12');
+                        link.classList.add('opacity-100', 'translate-x-0');
+                    }, i * 100);
+                });
+            } else {
+                links.forEach(link => {
+                    link.classList.add('opacity-0', '-translate-x-12');
+                    link.classList.remove('opacity-100', 'translate-x-0');
+                });
+                setTimeout(() => {
+                    menu.classList.add('hidden');
+                    document.body.style.overflow = 'auto';
+                }, 400);
+            }
         }
 
-        function openDistributorModal(name, addr, phone) {
-            document.getElementById('dist-name').innerText = name;
-            document.getElementById('dist-address').innerText = addr;
-            document.getElementById('dist-phone').innerText = phone;
-            document.getElementById('distModal').classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
+        function toggleSubMenu() {
+            const sub = document.getElementById('aboutSubMenu');
+            const arrow = document.getElementById('aboutArrow');
+            sub.classList.toggle('hidden');
+            arrow.classList.toggle('rotate-180');
         }
 
-        function closeDistModal() {
-            document.getElementById('distModal').classList.add('hidden');
-            document.body.style.overflow = 'auto';
+        function toggleSearch() { document.getElementById('searchOverlay').classList.toggle('hidden'); }
+        function openSampleModal() { document.getElementById('sampleModal').classList.remove('hidden'); }
+        function closeSampleModal() { document.getElementById('sampleModal').classList.add('hidden'); }
+        function nextStep(n) { document.getElementById('step-1').classList.add('hidden'); document.getElementById('step-2').classList.remove('hidden'); }
+        
+        function openDistModal(name) {
+            alert("Opening detailed summary for: " + name); 
+            // In production, trigger a styled modal similar to sampleModal
         }
     </script>
 </body>
-</html>
-    
-  </body>
-  
 </html>
