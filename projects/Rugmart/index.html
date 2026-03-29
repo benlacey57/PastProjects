@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Rugmart: Home v1</title>
+    <link rel="stylesheet" href="https://public.codepenassets.com/css/reset-2.0.min.css">
+
+
+  </head>
+    
+  <body>
+  <!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RUGMART | Luxury Rugs Guildford</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --rm-red: #8B1D27; --rm-gold: #C5A059; }
+        body { font-family: 'Inter', sans-serif; transition: background-color 0.3s; }
+        h1, h2, h3, .font-serif { font-family: 'Playfair Display', serif; }
+        .bg-rm-red { background-color: var(--rm-red); }
+        .text-rm-red { color: var(--rm-red); }
+        .bg-rm-gold { background-color: var(--rm-gold); }
+        
+        /* Mobile Menu Full Width */
+        #mobileNav { transform: translateX(100%); transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1); }
+        #mobileNav.active { transform: translateX(0); }
+        .nav-link-anim { opacity: 0; transform: translateY(20px); transition: all 0.4s ease; }
+        #mobileNav.active .nav-link-anim { opacity: 1; transform: translateY(0); transition-delay: calc(var(--order) * 0.1s); }
+
+        /* Lightbox & Inquiry Form */
+        #inquiryFormSide { transform: translateX(100%); transition: transform 0.5s ease-in-out; }
+        #inquiryFormSide.open { transform: translateX(0); }
+        
+        /* Utility */
+        .reveal { opacity: 0; transform: translateY(30px); transition: 0.8s ease-out; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<body class="bg-white text-slate-900 dark:bg-slate-950 dark:text-slate-100">
+
+    <header class="fixed top-0 w-full z-[60] bg-white/95 dark:bg-slate-950/95 border-b border-gray-100 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto px-6 h-24 flex items-center">
+            <div class="flex-1 flex gap-4">
+                <button class="text-slate-400 hover:text-rm-red"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg></button>
+                <button onclick="toggleTheme()" class="text-rm-gold"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"></path></svg></button>
+            </div>
+            
+            <div class="flex-none text-center">
+                <h1 class="text-4xl font-bold tracking-tighter text-rm-red">RUGMART</h1>
+                <p class="text-[9px] tracking-[0.5em] text-rm-gold font-bold uppercase">Guildford</p>
+            </div>
+
+            <div class="flex-1 flex justify-end">
+                <button onclick="toggleMenu(true)" class="p-3 bg-rm-red text-white rounded">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/></svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <section class="relative h-[85vh] flex items-center justify-center pt-24">
+        <div class="absolute inset-0 bg-slate-900"><img src="https://via.placeholder.com/1920x1080/222/666?text=Rugmart+Showroom" class="w-full h-full object-cover opacity-40"></div>
+        <div class="relative z-10 text-center text-white px-6">
+            <h2 class="text-rm-gold font-bold tracking-widest mb-4">ESTABLISHED 1992</h2>
+            <h1 class="text-6xl md:text-8xl font-serif mb-8">Masterpieces For <br>Your Floor</h1>
+            <button onclick="openGeneralModal()" class="bg-rm-red hover:bg-red-800 text-white px-12 py-5 rounded-full font-bold shadow-2xl transition transform hover:scale-105">Book Consultation</button>
+        </div>
+    </section>
+
+    <section class="max-w-4xl mx-auto -mt-12 relative z-20 px-6">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-xl border-t-4 border-blue-500 text-center">
+                <div class="text-2xl font-bold">4.9/5</div>
+                <div class="text-xs font-bold text-blue-500 uppercase tracking-widest">Google Reviews</div>
+                <div class="text-[10px] text-slate-400">Based on 142 reviews</div>
+            </div>
+            <div class="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-xl border-t-4 border-green-500 text-center">
+                <div class="text-2xl font-bold">Excellent</div>
+                <div class="text-xs font-bold text-green-500 uppercase tracking-widest">Trustpilot</div>
+                <div class="text-[10px] text-slate-400">Verified Platinum Partner</div>
+            </div>
+            <div class="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-xl border-t-4 border-blue-700 text-center">
+                <div class="text-2xl font-bold">5/5</div>
+                <div class="text-xs font-bold text-blue-700 uppercase tracking-widest">Facebook</div>
+                <div class="text-[10px] text-slate-400">100% Recommendation</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 max-w-7xl mx-auto px-6">
+        <div class="grid lg:grid-cols-2 gap-16">
+            <div class="reveal">
+                <h2 class="text-4xl font-serif text-rm-red mb-8">Before You Visit Rugmart</h2>
+                <div class="space-y-8">
+                    <div>
+                        <h4 class="font-bold text-xl flex items-center gap-3">Measure Your Space</h4>
+                        <p class="text-slate-500 mt-2">Take measurements of the area including length and width. Consider furniture placement—will the rug go under a dining table or in the living room?</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-xl flex items-center gap-3">Bring Swatches & Media</h4>
+                        <p class="text-slate-500 mt-2">Carry fabric samples or paint swatches. Take pictures and Videos of your room from different angles to help visualize.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="space-y-8 reveal" style="transition-delay: 0.2s;">
+                <div>
+                    <h4 class="font-bold text-xl flex items-center gap-3">Style & Color</h4>
+                    <p class="text-slate-500 mt-2">Think about traditional, modern, or minimalistic styles. Save inspiration photos on your phone for our experts.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-xl flex items-center gap-3">Lifestyle & Usage</h4>
+                    <p class="text-slate-500 mt-2">Pets or kids? Opt for stain-resistant wool. Hallways need durable materials; bedrooms need plush, soft textures.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-gray-50 dark:bg-slate-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-4xl font-serif text-center mb-12">Online Rug Categories</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="group relative h-96 overflow-hidden rounded-2xl cursor-pointer" onclick="openLightbox('Antique Persian', 'https://via.placeholder.com/800x1000?text=Antique+Persian', 'Wool', 'Traditional', 'Red/Gold')">
+                    <img src="https://via.placeholder.com/800x1000?text=Antique+Persian" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-8">
+                        <h3 class="text-white text-2xl font-bold">Antique Persian</h3>
+                        <p class="text-rm-gold text-sm font-bold">Shop Collection →</p>
+                    </div>
+                </div>
+                <div class="group relative h-96 overflow-hidden rounded-2xl cursor-pointer" onclick="openLightbox('Modern Abstract', 'https://via.placeholder.com/800x1000?text=Modern+Abstract', 'Silk Blend', 'Contemporary', 'Grey/Blue')">
+                    <img src="https://via.placeholder.com/800x1000?text=Modern+Abstract" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-8">
+                        <h3 class="text-white text-2xl font-bold">Modern Abstract</h3>
+                        <p class="text-rm-gold text-sm font-bold">Shop Collection →</p>
+                    </div>
+                </div>
+                <div class="group relative h-96 overflow-hidden rounded-2xl cursor-pointer" onclick="openLightbox('Tribal Kilims', 'https://via.placeholder.com/800x1000?text=Tribal+Kilims', 'Pure Wool', 'Geometric', 'Earth Tones')">
+                    <img src="https://via.placeholder.com/800x1000?text=Tribal+Kilims" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-8">
+                        <h3 class="text-white text-2xl font-bold">Tribal Kilims</h3>
+                        <p class="text-rm-gold text-sm font-bold">Shop Collection →</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="visit" class="py-24 bg-rm-red text-white">
+        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
+            <div>
+                <h2 class="text-4xl font-serif mb-6">Visit Our Showroom</h2>
+                <p class="text-xl mb-8 opacity-90 leading-relaxed">Experience Surrey's largest collection of over 10,000 hand-knotted rugs in person. Our experts are on hand to guide your choice.</p>
+                <div class="space-y-4 font-bold text-lg">
+                    <p>📍 71-72 North Street, Guildford, Surrey, GU1 4AW</p>
+                    <p>📞 01483 578 874</p>
+                    <p>✉️ info@rugmart.co.uk</p>
+                </div>
+            </div>
+            <div class="h-[400px] bg-slate-200 rounded-2xl overflow-hidden border-4 border-rm-gold">
+                <div class="w-full h-full flex items-center justify-center text-slate-800">[Google Map Embed - Guildford]</div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 bg-white dark:bg-slate-950 border-t border-gray-100 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+            <h1 class="text-2xl font-bold text-rm-red">RUGMART</h1>
+            <div class="flex gap-8 text-xs font-bold tracking-widest uppercase text-slate-400">
+                <a href="#" class="hover:text-rm-red">Privacy</a>
+                <a href="#" class="hover:text-rm-red">Terms</a>
+                <a href="#" class="hover:text-rm-red">Sitemap</a>
+            </div>
+            <p class="text-xs text-slate-400">© 2026 Rugmart. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <div id="lightbox" class="fixed inset-0 z-[100] hidden bg-black/95 flex items-center justify-center">
+        <button onclick="closeLightbox()" class="absolute top-8 right-8 text-white text-4xl">&times;</button>
+        <div class="max-w-4xl w-full px-6 flex flex-col items-center">
+            <img id="lbImage" src="" class="max-h-[70vh] rounded-lg shadow-2xl mb-8">
+            <button onclick="toggleInquiry(true)" class="bg-rm-gold text-white px-10 py-4 font-bold rounded-lg animate-bounce">Enquire About This Rug</button>
+        </div>
+
+        <div id="inquiryFormSide" class="absolute inset-y-0 right-0 w-full md:w-[75%] bg-white dark:bg-slate-900 shadow-2xl flex flex-col md:flex-row overflow-hidden">
+            <div class="md:w-1/4 bg-gray-100 dark:bg-slate-800 p-8">
+                <button onclick="toggleInquiry(false)" class="text-rm-red font-bold mb-8">← Back to Image</button>
+                <img id="formRugImg" src="" class="w-full rounded mb-6">
+                <h4 id="formRugName" class="text-xl font-bold mb-4"></h4>
+                <div class="space-y-2 text-sm text-slate-500">
+                    <p><strong>Material:</strong> <span id="formRugMat"></span></p>
+                    <p><strong>Style:</strong> <span id="formRugStyle"></span></p>
+                    <p><strong>Colors:</strong> <span id="formRugCol"></span></p>
+                </div>
+            </div>
+            <div class="md:w-3/4 p-12 overflow-y-auto text-slate-900 dark:text-white">
+                <h3 class="text-3xl font-serif mb-6">Request Specific Details</h3>
+                <form class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <input type="text" placeholder="Full Name" class="p-4 border rounded dark:bg-slate-800 border-slate-200 dark:border-slate-700">
+                    <input type="email" placeholder="Email Address" class="p-4 border rounded dark:bg-slate-800 border-slate-200 dark:border-slate-700">
+                    <input type="text" placeholder="Target Budget (£)" class="p-4 border rounded dark:bg-slate-800 border-slate-200 dark:border-slate-700">
+                    <select class="p-4 border rounded dark:bg-slate-800 border-slate-200 dark:border-slate-700">
+                        <option>Delivery Inquiry</option>
+                        <option>Bespoke Sizing</option>
+                        <option>General Question</option>
+                    </select>
+                    <textarea placeholder="Your message..." class="md:col-span-2 p-4 border rounded dark:bg-slate-800 h-32"></textarea>
+                    <button class="md:col-span-2 bg-rm-red text-white py-4 font-bold rounded">Send Inquiry</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="mobileNav" class="fixed inset-0 z-[100] bg-white dark:bg-slate-950 flex flex-col">
+        <div class="h-24 px-6 flex items-center justify-between border-b border-gray-100 dark:border-slate-800">
+            <span class="text-rm-red font-bold">MENU</span>
+            <button onclick="toggleMenu(false)" class="p-3 text-rm-red text-3xl">&times;</button>
+        </div>
+        <nav class="flex-1 flex flex-col justify-center px-12 space-y-8">
+            <div class="nav-link-anim" style="--order: 1"><a href="#" class="text-4xl font-serif hover:text-rm-red">Rug Styles</a></div>
+            <div class="nav-link-anim" style="--order: 2"><a href="#" class="text-4xl font-serif hover:text-rm-red">Rug Types</a></div>
+            <div class="nav-link-anim" style="--order: 3"><a href="#" class="text-4xl font-serif hover:text-rm-red">Rug Materials</a></div>
+            <div class="nav-link-anim" style="--order: 4">
+                <p class="text-xs uppercase tracking-widest text-rm-gold mb-4">By Color</p>
+                <div class="flex gap-4">
+                    <div class="w-8 h-8 rounded-full bg-red-800"></div>
+                    <div class="w-8 h-8 rounded-full bg-blue-900"></div>
+                    <div class="w-8 h-8 rounded-full bg-amber-200"></div>
+                    <div class="w-8 h-8 rounded-full bg-emerald-900"></div>
+                </div>
+            </div>
+        </nav>
+        <div class="p-12 border-t border-gray-100 dark:border-slate-800 flex justify-between">
+            <a href="tel:01483578874" class="font-bold text-rm-red">CALL US</a>
+            <a href="#" class="font-bold text-rm-red">CONTACT</a>
+        </div>
+    </div>
+
+    <div id="generalModal" class="fixed inset-0 z-[120] hidden bg-black/80 flex items-center justify-center p-6">
+        <div class="bg-white dark:bg-slate-900 w-full max-w-lg rounded-2xl p-10 relative">
+            <button onclick="closeGeneralModal()" class="absolute top-4 right-4 text-2xl">&times;</button>
+            <h2 class="text-3xl font-serif text-rm-red mb-4">Book a Showroom Visit</h2>
+            <form class="space-y-4">
+                <input type="text" placeholder="Full Name" class="w-full p-4 border rounded dark:bg-slate-800">
+                <input type="email" placeholder="Email" class="w-full p-4 border rounded dark:bg-slate-800">
+                <button class="w-full bg-rm-red text-white py-4 font-bold rounded">Confirm Booking</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // THEME TOGGLE
+        function toggleTheme() {
+            document.documentElement.classList.toggle('dark');
+        }
+
+        // MOBILE MENU
+        function toggleMenu(open) {
+            const nav = document.getElementById('mobileNav');
+            open ? nav.classList.add('active') : nav.classList.remove('active');
+        }
+
+        // LIGHTBOX & DYNAMIC INQUIRY
+        function openLightbox(name, src, mat, style, col) {
+            document.getElementById('lbImage').src = src;
+            document.getElementById('formRugImg').src = src;
+            document.getElementById('formRugName').innerText = name;
+            document.getElementById('formRugMat').innerText = mat;
+            document.getElementById('formRugStyle').innerText = style;
+            document.getElementById('formRugCol').innerText = col;
+            document.getElementById('lightbox').classList.remove('hidden');
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.add('hidden');
+            toggleInquiry(false);
+        }
+
+        function toggleInquiry(open) {
+            const side = document.getElementById('inquiryFormSide');
+            open ? side.classList.add('open') : side.classList.remove('open');
+        }
+
+        // GENERAL MODAL
+        function openGeneralModal() { document.getElementById('generalModal').classList.remove('hidden'); }
+        function closeGeneralModal() { document.getElementById('generalModal').classList.add('hidden'); }
+
+        // REVEAL ON SCROLL
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+    </script>
+</body>
+</html>
+    
+  </body>
+  
+</html>
