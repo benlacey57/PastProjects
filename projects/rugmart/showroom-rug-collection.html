@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Rugmart: Collection Page</title>
+    <link rel="stylesheet" href="https://public.codepenassets.com/css/reset-2.0.min.css">
+
+
+  </head>
+    
+  <body>
+  <!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vintage Rugs | Rugmart Guildford & Richmond</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --rm-red: #8B1D27; --rm-red-dark: #5A1219; --rm-gold: #C5A059; }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .font-serif { font-family: 'Playfair Display', serif; }
+        
+        /* 3rem Vertical Padding for all 100% width sections */
+        .section-padding { padding-top: 3rem; padding-bottom: 3rem; }
+      
+        .hero h1 { padding-bottom: 1rem ! important; }
+        .hero p { padding:1.5rem 0; font-size:1rem: }
+
+        /* Mobile H2 Scaling */
+        @media (max-width: 768px) {
+            h2 { font-size: 1.85rem !important; line-height: 1.2; }
+            h3 { font-size: 1.5rem !important; }
+        }
+
+        .offer-badge {
+            background-color: var(--rm-red-dark);
+            width: 60px; height: 60px;
+            border: 2px solid white;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            z-index: 20;
+        }
+    </style>
+</head>
+<body class="bg-white text-slate-900">
+
+    <header class="fixed top-0 w-full z-[70] bg-white border-b border-gray-100 h-24">
+        <div class="max-w-[1600px] mx-auto px-6 h-full flex items-center justify-between">
+            <div class="flex-1 flex items-center">
+                <button class="text-slate-500 hover:text-rm-red transition">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                    </svg>
+                </button>
+            </div>
+            
+            <div class="flex-none text-center">
+                <h1 class="text-3xl md:text-4xl font-bold tracking-tighter text-[#8B1D27] uppercase">RUGMART</h1>
+                <p class="text-[9px] tracking-[0.4em] text-[#C5A059] font-bold uppercase">Guildford & Richmond</p>
+            </div>
+
+            <div class="flex-1 flex justify-end">
+                <button onclick="toggleMenu(true)" class="bg-[#8B1D27] text-white px-4 py-2 rounded font-bold text-xs uppercase tracking-widest hover:bg-rm-red-dark transition">Menu</button>
+            </div>
+        </div>
+    </header>
+
+      <section class="hero w-full relative flex items-center justify-center pt-24 overflow-hidden" style="min-height:500px; height:650px;">
+        <div class="absolute inset-0 bg-slate-900">
+            <img src="https://picsum.photos/seed/rugv/1920/1080" width="1920" height="1080" class="w-full h-full object-cover opacity-40">
+        </div>
+        <div class="relative z-10 text-center text-white px-6">
+            <h1 class="text-3xl md:text-7xl font-serif pb-2  leading-tight">The Vintage Collection</h1>
+          <p class"py-6">This unique collection of worn Antique Persian rugs have the traditional medallion design centre with a floating border or subtle all over pattern with floral motifs.</p>
+            <button class="bg-[#C5A059] text-white px-10 py-4 rounded font-bold uppercase text-xs tracking-widest shadow-lg">Request Home Trial</button>
+        </div>
+    </section>
+
+    <section class="w-full section-padding border-b border-gray-50">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row items-center gap-12">
+            <div class="w-full lg:w-1/2 order-first lg:order-last relative">
+                <img src="https://picsum.photos/seed/run/800/1200" width="800" height="1200" class="w-full h-[400px] lg:h-[550px] object-cover rounded-lg shadow-xl">
+                <div class="offer-badge absolute -top-3 -right-3 rounded-full flex items-center justify-center text-white text-[10px] font-bold">20% OFF</div>
+            </div>
+            <div class="w-full lg:w-1/2 space-y-6">
+                <h2 class="text-4xl font-serif text-[#8B1D27]">Vintage Hall Runners</h2>
+                <p class="text-slate-600 leading-relaxed">Our hand-picked vintage runners are sourced from the tribal regions of Persia and the Caucasus. These pieces are chosen specifically for their ability to withstand the high-traffic demands of modern Surrey hallways while providing an immediate sense of history and warmth.</p>
+                <button class="bg-[#C5A059] text-white px-8 py-3 rounded font-bold uppercase text-[10px] tracking-widest">Shop All Runners</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="w-full section-padding bg-slate-50">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row-reverse items-center gap-12">
+            <div class="w-full lg:w-1/2 order-first relative">
+                <img src="https://picsum.photos/seed/kilim/1000/1000" width="1000" height="1000" class="w-full h-[400px] lg:h-[500px] object-cover rounded-lg shadow-xl">
+            </div>
+            <div class="w-full lg:w-1/2 space-y-6">
+                <h2 class="text-4xl font-serif text-[#8B1D27]">Handmade Tribal Kilims</h2>
+                <p class="text-slate-600 leading-relaxed">The Kilim is a flat-weave rug that offers a more minimalist profile than a knotted pile rug. Our vintage Kilims from the mid-20th century showcase bold geometric symbols and organic dyes that have softened beautifully over decades.</p>
+                <button class="bg-[#C5A059] text-white px-8 py-3 rounded font-bold uppercase text-[10px] tracking-widest">View Kilims</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="w-full section-padding">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row items-center gap-12">
+            <div class="w-full lg:w-1/2 order-first lg:order-last relative">
+                <img src="https://picsum.photos/seed/small/800/800" width="800" height="800" class="w-full h-[400px] object-cover rounded-lg shadow-xl">
+                <div class="offer-badge absolute -top-3 -right-3 rounded-full flex items-center justify-center text-white text-[10px] font-bold text-center">SALE</div>
+            </div>
+            <div class="w-full lg:w-1/2 space-y-6">
+                <h2 class="text-4xl font-serif text-[#8B1D27]">Small Vintage Accents</h2>
+                <p class="text-slate-600 leading-relaxed">Versatile and vibrant, these smaller pieces (up to 1.5m) are perfect for studies, bedside placement, or even wall mounting. Each rug is a unique masterwork of nomadic art, featuring intricate borders and central medallions.</p>
+                <button class="bg-[#C5A059] text-white px-8 py-3 rounded font-bold uppercase text-[10px] tracking-widest">Shop Small Rugs</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="w-full section-padding bg-slate-50">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row-reverse items-center gap-12">
+            <div class="w-full lg:w-1/2 order-first relative">
+                <img src="https://picsum.photos/seed/med/1200/900" width="1200" height="900" class="w-full h-[400px] lg:h-[450px] object-cover rounded-lg shadow-xl">
+            </div>
+            <div class="w-full lg:w-1/2 space-y-6">
+                <h2 class="text-4xl font-serif text-[#8B1D27]">Medium Room-Size Rugs</h2>
+                <p class="text-slate-600 leading-relaxed">Ideally sized for standard UK living rooms, our medium vintage rugs bring a sophisticated, lived-in feel to contemporary interiors. These rugs have already stood the test of time, proving their exceptional structural durability.</p>
+                <button class="bg-[#C5A059] text-white px-8 py-3 rounded font-bold uppercase text-[10px] tracking-widest">Shop Medium</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="w-full section-padding">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row items-center gap-12">
+            <div class="w-full lg:w-1/2 order-first lg:order-last relative">
+                <img src="https://picsum.photos/seed/large/1600/1000" width="1600" height="1000" class="w-full h-[400px] lg:h-[500px] object-cover rounded-lg shadow-xl">
+            </div>
+            <div class="w-full lg:w-1/2 space-y-6">
+                <h2 class="text-4xl font-serif text-[#8B1D27]">Oversized Mansion Rugs</h2>
+                <p class="text-slate-600 leading-relaxed">Our rarest finds. These large-scale vintage rugs (3m x 4m and above) were once the centerpieces of grand estates. They offer unparalleled luxury and warmth for large open-plan spaces or formal dining rooms.</p>
+                <button class="bg-[#C5A059] text-white px-8 py-3 rounded font-bold uppercase text-[10px] tracking-widest">Enquire Now</button>
+            </div>
+        </div>
+    </section>
+
+      <footer class="bg-white border-t border-gray-100 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+            <div>
+                <h3 class="text-[#8B1D27] font-bold uppercase tracking-widest text-xs mb-6 underline decoration-[#C5A059] underline-offset-8">Surrounding Areas</h3>
+                <ul class="grid grid-cols-2 gap-y-2 text-[11px] text-slate-500 font-bold uppercase">
+                    <li><a href="#" class="hover:text-[#C5A059]">Woking</a></li>
+                    <li><a href="#" class="hover:text-[#C5A059]">Godalming</a></li>
+                    <li><a href="#" class="hover:text-[#C5A059]">Farnham</a></li>
+                    <li><a href="#" class="hover:text-[#C5A059]">Weybridge</a></li>
+                    <li><a href="#" class="hover:text-[#C5A059]">Cobham</a></li>
+                    <li><a href="#" class="hover:text-[#C5A059]">Cranleigh</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-[#8B1D27] font-bold uppercase tracking-widest text-xs mb-6 underline decoration-[#C5A059] underline-offset-8">Guildford Store</h3>
+                <p class="text-sm text-slate-600">71-72 North Street, Guildford, Surrey, GU1 4AW</p>
+                <p class="pt-2 font-bold text-slate-900">T: 01483 578 874</p>
+            </div>
+            <div>
+                <h3 class="text-[#8B1D27] font-bold uppercase tracking-widest text-xs mb-6 underline decoration-[#C5A059] underline-offset-8">Richmond Store</h3>
+                <p class="text-sm text-slate-600">12-14 Hill Rise, Richmond, London, TW10 6UA</p>
+                <p class="pt-2 font-bold text-slate-900">T: 020 8948 2441</p>
+            </div>
+            <div>
+                <h3 class="text-[#8B1D27] font-bold uppercase tracking-widest text-xs mb-6 underline decoration-[#C5A059] underline-offset-8">Services</h3>
+                <ul class="text-[11px] font-bold uppercase text-slate-600 space-y-3">
+                    <li><a href="#">Professional Cleaning</a></li>
+                    <li><a href="#">Expert Rug Repair</a></li>
+                    <li><a href="#">Home Trial Visits</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-6 pt-12 mt-12 border-t border-gray-100 flex justify-between text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+            <p>© 2026 RUGMART GUILDFORD & RICHMOND</p>
+            <p>Developed by <a href="https://benlacey.co.uk" target="_blank" class="text-[#8B1D27]">Ben Lacey</a></p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu(open) {
+            // Reusable menu toggle logic
+        }
+    </script>
+</body>
+</html>
+    
+  </body>
+  
+</html>
