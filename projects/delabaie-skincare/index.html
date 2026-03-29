@@ -1,0 +1,1848 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>DeLaBaie Skincare: Home v2</title>
+    <link rel="stylesheet" href="https://public.codepenassets.com/css/reset-2.0.min.css">
+
+
+  </head>
+    
+  <body>
+  <!DOCTYPE html>
+<html lang="en-GB">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DeLaBaie Skincare | Arctic Luxury. Superior Results.</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    :root {
+      --grey: #2D2D2D;
+      --green: #4A7C59;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      padding-bottom: 48px;
+    }
+
+    .fh {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .65s ease, transform .65s ease;
+    }
+
+    .reveal.vis {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .d1 {
+      transition-delay: .1s
+    }
+
+    .d2 {
+      transition-delay: .2s
+    }
+
+    .d3 {
+      transition-delay: .3s
+    }
+
+    .d4 {
+      transition-delay: .4s
+    }
+
+    .d5 {
+      transition-delay: .5s
+    }
+
+    .nav-link {
+      display: flex;
+      align-items: center;
+      padding: 0 15px;
+      height: 100%;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: white;
+      white-space: nowrap;
+      transition: background .2s;
+      text-decoration: none;
+    }
+
+    .nav-shop:hover {
+      background: #4A7C59;
+    }
+
+    .nav-men:hover {
+      background: #3B82F6;
+    }
+
+    .nav-women:hover {
+      background: #EC4899;
+    }
+
+    .nav-children:hover {
+      background: #F97316;
+    }
+
+    .nav-unisex:hover {
+      background: #22C55E;
+    }
+
+    .nav-def:hover {
+      background: rgba(255, 255, 255, .1);
+    }
+
+    .mega-wrap {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      z-index: 90;
+    }
+
+    .mega-menu {
+      background: #fff;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, .12);
+      transform: translateY(-8px);
+      opacity: 0;
+      transition: transform .25s ease, opacity .25s ease;
+      pointer-events: none;
+    }
+
+    .has-mega:hover .mega-wrap,
+    .has-mega:focus-within .mega-wrap {
+      pointer-events: all;
+    }
+
+    .has-mega:hover .mega-menu,
+    .has-mega:focus-within .mega-menu {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    #mob-menu {
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 300px;
+      background: #2D2D2D;
+      z-index: 200;
+      transform: translateX(-100%);
+      transition: transform .35s cubic-bezier(.25, .46, .45, .94);
+      overflow-y: auto;
+    }
+
+    #mob-menu.open {
+      transform: translateX(0);
+    }
+
+    #overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, .55);
+      z-index: 190;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .35s;
+    }
+
+    #overlay.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    #srch-panel {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: #2D2D2D;
+      z-index: 250;
+      transform: translateY(-100%);
+      transition: transform .4s cubic-bezier(.25, .46, .45, .94);
+      padding: 80px 24px 40px;
+    }
+
+    #srch-panel.open {
+      transform: translateY(0);
+    }
+
+    #cart-panel {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 340px;
+      background: white;
+      z-index: 200;
+      transform: translateX(100%);
+      transition: transform .35s cubic-bezier(.25, .46, .45, .94);
+      overflow-y: auto;
+      box-shadow: -8px 0 40px rgba(0, 0, 0, .1);
+    }
+
+    #cart-panel.open {
+      transform: translateX(0);
+    }
+
+    #lbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, .92);
+      z-index: 400;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .3s;
+    }
+
+    #lbox.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .hero-track {
+      display: flex;
+      height: 100%;
+    }
+
+    .hero-slide {
+      min-width: 100%;
+      flex-shrink: 0;
+      position: relative;
+    }
+
+    .hero-wrap {
+      overflow: hidden;
+    }
+
+    .hdot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .35);
+      cursor: pointer;
+      transition: all .3s;
+      border: 1.5px solid rgba(255, 255, 255, .5);
+    }
+
+    .hdot.act {
+      background: white;
+      transform: scale(1.25);
+    }
+
+    .pcard {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, .07);
+      transition: box-shadow .3s, transform .3s;
+    }
+
+    .pcard:hover {
+      box-shadow: 0 12px 40px rgba(0, 0, 0, .12);
+      transform: translateY(-3px);
+    }
+
+    .pimg {
+      transition: transform .5s ease;
+    }
+
+    .pcard:hover .pimg {
+      transform: scale(1.07);
+    }
+
+    .rcard {
+      border-radius: 20px;
+      overflow: hidden;
+      transition: transform .3s, box-shadow .3s;
+      cursor: pointer;
+    }
+
+    .rcard:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, .15);
+    }
+
+    .gitem {
+      overflow: hidden;
+      cursor: pointer;
+      border-radius: 12px;
+    }
+
+    .gthumb {
+      transition: transform .4s ease;
+    }
+
+    .gitem:hover .gthumb {
+      transform: scale(1.09);
+    }
+
+    .ttrack {
+      display: flex;
+      transition: transform .5s ease;
+    }
+
+    .tcard {
+      flex-shrink: 0;
+      width: 100%;
+    }
+
+    .tab-btn {
+      padding: 12px 22px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      border-bottom: 2px solid transparent;
+      transition: all .2s;
+      color: #9CA3AF;
+      cursor: pointer;
+    }
+
+    .tab-btn.act {
+      border-bottom-color: #4A7C59;
+      color: #2D2D2D;
+    }
+
+    .tab-pane {
+      display: none;
+    }
+
+    .tab-pane.act {
+      display: block;
+    }
+
+    .acc-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .3s ease;
+    }
+
+    .acc-body.open {
+      max-height: 400px;
+    }
+
+    .badge {
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 999px;
+      letter-spacing: .04em;
+    }
+
+    .bsale {
+      background: #EF4444;
+      color: white;
+    }
+
+    .bmen {
+      background: #EFF6FF;
+      color: #3B82F6;
+    }
+
+    .bwomen {
+      background: #FDF2F8;
+      color: #EC4899;
+    }
+
+    .bchild {
+      background: #FFF7ED;
+      color: #F97316;
+    }
+
+    .bunisex {
+      background: #F0FDF4;
+      color: #22C55E;
+    }
+
+    .star {
+      color: #F59E0B;
+    }
+
+    #scrBtn {
+      position: fixed;
+      bottom: 76px;
+      right: 16px;
+      z-index: 160;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .3s;
+    }
+
+    #scrBtn.show {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .prog-bar {
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 5s linear;
+    }
+
+    .prog-bar.run {
+      transform: scaleX(1);
+    }
+
+    #mob-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 180;
+      background: #2D2D2D;
+      border-top: 1px solid rgba(255, 255, 255, .1);
+    }
+
+    #offers-panel.open {
+      transform: translateY(0) !important;
+      opacity: 1 !important;
+      pointer-events: all !important;
+    }
+
+    .ingr-card {
+      border-radius: 16px;
+      padding: 20px;
+      transition: transform .3s, box-shadow .3s;
+    }
+
+    .ingr-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, .1);
+    }
+  </style>
+</head>
+
+<body class="bg-white text-gray-900">
+
+  <!-- ANNOUNCEMENT BAR -->
+  <div id="annoBar" style="background:#4A7C59;" class="text-white text-center text-xs font-medium py-2.5 px-8 relative">
+    <span id="annoText"></span>
+    <button onclick="dismissAnno()" class="absolute right-4 top-1/2 -translate-y-1/2 text-white/70 hover:text-white transition-colors">
+      <i class="fas fa-times text-xs"></i>
+    </button>
+  </div>
+
+  <!-- HEADER -->
+  <header class="sticky top-0 z-100" style="background:#2D2D2D;z-index:100;">
+    <div class="max-w-screen-xl mx-auto px-4 flex items-stretch h-[72px]">
+      <button id="mobToggle" class="lg:hidden flex items-center justify-center w-10 text-white mr-3">
+        <i class="fas fa-bars text-lg"></i>
+      </button>
+      <a href="#" class="flex items-center flex-shrink-0 mr-6">
+        <span class="fh text-2xl italic text-white font-light tracking-wide">De La<span style="color:#6FB87F;font-weight:600;font-style:normal"> Baie</span></span>
+      </a>
+      <nav class="hidden lg:flex items-stretch flex-1">
+        <div class="has-mega relative flex items-stretch">
+          <a href="#" class="nav-link nav-shop">Shop <i class="fas fa-chevron-down text-[9px] ml-1 opacity-60"></i></a>
+          <div class="mega-wrap">
+            <div class="mega-menu">
+              <div class="max-w-screen-xl mx-auto px-8 py-8 grid grid-cols-5 gap-6">
+                <div>
+                  <p class="text-xs font-bold uppercase tracking-widest text-blue-500 mb-3">For Men</p>
+                  <ul class="space-y-2">
+                    <li><a href="#" class="text-sm text-gray-600 hover:text-blue-500 transition-colors">Facial Serums</a></li>
+                    <li><a href="#" class="text-sm text-gray-600 hover:text-blue-500 transition-colors">Moisturisers</a></li>
+                    <li><a href="#" class="text-sm text-gray-600 hover:text-blue-500 transition-colors">Cleansers &amp; Washes</a></li>
+                    <li><a href="#" class="text-sm text-gray-600 hover:text-blue-500 transition-colors">Body Oils</a></li>
+                    <li><a href="#" class="text-sm text-gray-600 hover:text-blue-500 transition-colors">Shave &amp; Aftercare</a></li>
+                  </ul>
+                </div>
+                <div>
+                  <p class="text-xs font-bold uppercase tracking-widest text-pink-500 mb-3">For Women</p>
+                  <ul class="space-y-2">
+                    <li><a href="#" class="text-sm text-gray-600 hover:text-pink-500 transition-colors">Anti-Ageing Serums</a></li>
+                    <li><a href="#" class="text-sm text-gray-600 hover:text-pink-500 transition-colors">Facial Moisturisers</a></li>
+                    <li><a href="#" class="text-sm text-gray-600 hover:text-pink-500 transition-colors">Body Oils &amp; Creams</a></li>
+                    <li><a href="#" class="text-sm text-gray-600 hover:text-pink-500 transition-colors">Face Washes</a></li>
+                    <li><a href="#" class="text-sm text-gray-600 hover:text-pink-500 transition-colors">Hand &amp; Nail Care</a></li>
+                  </ul>
+                </div>
+                <div>
+                  <p class="text-xs font-bold uppercase tracking-widest text-orange-500 mb-3">For Children</p>
+                  <ul class="space-y-2">
+                    <li><a href="#" class="text-sm text-gray-600 hover:text-orange-500 transition-colors">Gentle Cleansers</a></li>
+                    <li><a href="#" class="text-sm text-gray-600 hover:text-orange-500 transition-colors">Moisturisers</a></li>
+                    <li><a href="#" class="text-sm text-gray-600 hover:text-orange-500 transition-colors">Sun Care SPF</a></li>
+                    <li><a href="#" class="text-sm text-gray-600 hover:text-orange-500 transition-colors">Bath &amp; Body</a></li>
+                    <li><a href="#" class="text-sm text-gray-600 hover:text-orange-500 transition-colors">Baby Essentials</a></li>
+                  </ul>
+                </div>
+                <div>
+                  <p class="text-xs font-bold uppercase tracking-widest text-green-500 mb-3">Unisex</p>
+                  <ul class="space-y-2">
+                    <li><a href="#" class="text-sm text-gray-600 hover:text-green-500 transition-colors">Arctic Elixirs</a></li>
+                    <li><a href="#" class="text-sm text-gray-600 hover:text-green-500 transition-colors">Foot Balms &amp; Scrubs</a></li>
+                    <li><a href="#" class="text-sm text-gray-600 hover:text-green-500 transition-colors">Hand &amp; Body Oils</a></li>
+                    <li><a href="#" class="text-sm text-gray-600 hover:text-green-500 transition-colors">Gift Sets</a></li>
+                    <li><a href="#" class="text-sm text-gray-600 hover:text-green-500 transition-colors">Wellness Rituals</a></li>
+                  </ul>
+                </div>
+                <div>
+                  <p class="text-xs font-bold uppercase tracking-widest mb-3" style="color:#4A7C59;">Discover</p>
+                  <ul class="space-y-2">
+                    <li><a href="#" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">New Arrivals</a></li>
+                    <li><a href="#" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Best Sellers</a></li>
+                    <li><a href="#" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Gift Sets</a></li>
+                    <li><a href="#" class="text-sm font-semibold text-red-500 hover:text-red-600 transition-colors">Sale</a></li>
+                    <li><a href="#" class="text-sm text-gray-600 hover:text-gray-900 transition-colors">Skincare Quiz</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a href="#" class="nav-link nav-men">Men</a>
+        <a href="#" class="nav-link nav-women">Women</a>
+        <a href="#" class="nav-link nav-children">Children</a>
+        <a href="#" class="nav-link nav-unisex">Unisex</a>
+        <a href="#" class="nav-link nav-def">Our Story</a>
+        <a href="#" class="nav-link nav-def">Ingredients</a>
+        <a href="#" class="nav-link nav-def">Journal</a>
+      </nav>
+      <div class="flex items-center ml-auto gap-1">
+        <button onclick="toggleSearch()" class="w-10 h-10 flex items-center justify-center text-white/80 hover:text-white transition-colors rounded-lg hover:bg-white/10">
+          <i class="fas fa-search text-sm"></i>
+        </button>
+        <button class="w-10 h-10 hidden md:flex items-center justify-center text-white/80 hover:text-white transition-colors rounded-lg hover:bg-white/10">
+          <i class="far fa-heart text-sm"></i>
+        </button>
+        <button class="w-10 h-10 hidden md:flex items-center justify-center text-white/80 hover:text-white transition-colors rounded-lg hover:bg-white/10">
+          <i class="far fa-user text-sm"></i>
+        </button>
+        <button onclick="toggleCart()" class="w-10 h-10 flex items-center justify-center text-white/80 hover:text-white transition-colors rounded-lg hover:bg-white/10 relative">
+          <i class="fas fa-shopping-bag text-sm"></i>
+          <span class="absolute -top-0.5 -right-0.5 w-4 h-4 rounded-full text-[9px] font-bold flex items-center justify-center text-white" style="background:#4A7C59;">2</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MOBILE MENU -->
+  <div id="overlay" onclick="closeMob()"></div>
+  <div id="mob-menu">
+    <div class="flex items-center justify-between p-5 border-b border-white/10">
+      <span class="fh text-xl italic text-white font-light">De La<span style="color:#6FB87F;font-weight:600;font-style:normal"> Baie</span></span>
+      <button onclick="closeMob()" class="text-white/70 hover:text-white"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="p-4 space-y-1">
+      <div class="acc-item">
+        <button onclick="toggleAcc(this)" class="w-full flex items-center justify-between py-3 px-3 text-white text-sm font-semibold uppercase tracking-widest hover:bg-white/10 rounded-lg">
+          Shop <i class="fas fa-chevron-down text-xs text-white/50"></i>
+        </button>
+        <div class="acc-body pl-4">
+          <a href="#" class="block py-2 px-3 text-sm text-white/70 hover:text-white">All Products</a>
+          <a href="#" class="block py-2 px-3 text-sm text-blue-400 hover:text-blue-300">Men's Range</a>
+          <a href="#" class="block py-2 px-3 text-sm text-pink-400 hover:text-pink-300">Women's Range</a>
+          <a href="#" class="block py-2 px-3 text-sm text-orange-400 hover:text-orange-300">Children's Range</a>
+          <a href="#" class="block py-2 px-3 text-sm text-green-400 hover:text-green-300">Unisex Range</a>
+          <a href="#" class="block py-2 px-3 text-sm text-red-400 font-semibold">Sale</a>
+        </div>
+      </div>
+      <a href="#" class="flex items-center justify-between py-3 px-3 text-white text-sm font-semibold uppercase tracking-widest hover:bg-blue-500/20 rounded-lg">Men <i class="fas fa-chevron-right text-xs text-blue-400"></i></a>
+      <a href="#" class="flex items-center justify-between py-3 px-3 text-white text-sm font-semibold uppercase tracking-widest hover:bg-pink-500/20 rounded-lg">Women <i class="fas fa-chevron-right text-xs text-pink-400"></i></a>
+      <a href="#" class="flex items-center justify-between py-3 px-3 text-white text-sm font-semibold uppercase tracking-widest hover:bg-orange-500/20 rounded-lg">Children <i class="fas fa-chevron-right text-xs text-orange-400"></i></a>
+      <a href="#" class="flex items-center justify-between py-3 px-3 text-white text-sm font-semibold uppercase tracking-widest hover:bg-green-500/20 rounded-lg">Unisex <i class="fas fa-chevron-right text-xs text-green-400"></i></a>
+      <a href="#" class="flex items-center justify-between py-3 px-3 text-white text-sm font-semibold uppercase tracking-widest hover:bg-white/10 rounded-lg">Our Story</a>
+      <a href="#" class="flex items-center justify-between py-3 px-3 text-white text-sm font-semibold uppercase tracking-widest hover:bg-white/10 rounded-lg">Ingredients</a>
+      <a href="#" class="flex items-center justify-between py-3 px-3 text-white text-sm font-semibold uppercase tracking-widest hover:bg-white/10 rounded-lg">Journal</a>
+    </div>
+    <div class="p-5 border-t border-white/10 mt-4">
+      <p class="text-white/50 text-xs mb-3">Follow Us</p>
+      <div class="flex gap-4">
+        <a href="#" class="text-white/60 hover:text-white"><i class="fab fa-instagram text-lg"></i></a>
+        <a href="#" class="text-white/60 hover:text-white"><i class="fab fa-tiktok text-lg"></i></a>
+        <a href="#" class="text-white/60 hover:text-white"><i class="fab fa-facebook text-lg"></i></a>
+        <a href="#" class="text-white/60 hover:text-white"><i class="fab fa-pinterest text-lg"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- SEARCH PANEL -->
+  <div id="srch-panel">
+    <div class="max-w-2xl mx-auto">
+      <div class="flex items-center gap-4 border-b border-white/20 pb-4">
+        <i class="fas fa-search text-white/50 text-lg"></i>
+        <input id="srchInput" type="text" placeholder="Search products, ingredients or ranges…" class="flex-1 bg-transparent text-white placeholder-white/40 text-xl outline-none font-light">
+        <button onclick="toggleSearch()" class="text-white/60 hover:text-white"><i class="fas fa-times text-xl"></i></button>
+      </div>
+      <div class="mt-6">
+        <p class="text-white/40 text-xs uppercase tracking-widest mb-3">Popular Searches</p>
+        <div class="flex flex-wrap gap-2">
+          <span class="px-3 py-1.5 border border-white/20 text-white/70 text-sm rounded-full cursor-pointer hover:border-white/50 hover:text-white transition-colors">Cloudberry Oil</span>
+          <span class="px-3 py-1.5 border border-white/20 text-white/70 text-sm rounded-full cursor-pointer hover:border-white/50 hover:text-white transition-colors">Anti-Ageing Serum</span>
+          <span class="px-3 py-1.5 border border-white/20 text-white/70 text-sm rounded-full cursor-pointer hover:border-white/50 hover:text-white transition-colors">Hand Cream</span>
+          <span class="px-3 py-1.5 border border-white/20 text-white/70 text-sm rounded-full cursor-pointer hover:border-white/50 hover:text-white transition-colors">Foot Balm</span>
+          <span class="px-3 py-1.5 border border-white/20 text-white/70 text-sm rounded-full cursor-pointer hover:border-white/50 hover:text-white transition-colors">Sea Buckthorn</span>
+          <span class="px-3 py-1.5 border border-white/20 text-white/70 text-sm rounded-full cursor-pointer hover:border-white/50 hover:text-white transition-colors">Gift Sets</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CART SIDEBAR -->
+  <div id="cart-panel">
+    <div class="flex items-center justify-between p-5 border-b" style="background:#2D2D2D;">
+      <span class="text-white font-semibold uppercase tracking-widest text-sm">Your Bag (2)</span>
+      <button onclick="toggleCart()" class="text-white/60 hover:text-white"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="p-5 space-y-4">
+      <div class="flex gap-4 items-start">
+        <div class="w-16 h-16 rounded-xl flex items-center justify-center flex-shrink-0" style="background:linear-gradient(135deg,#FBD3E9,#FCA5A5)"><i class="fas fa-bottle-droplet text-white text-xl"></i></div>
+        <div class="flex-1">
+          <p class="font-semibold text-sm">Super Performance Facial Serum</p>
+          <p class="text-xs text-gray-500 mt-0.5">Women · 30ml</p>
+          <div class="flex items-center justify-between mt-2">
+            <div class="flex items-center gap-2 border rounded-full px-3 py-1">
+              <button class="text-gray-400 hover:text-gray-700 text-xs">−</button>
+              <span class="text-sm font-medium">1</span>
+              <button class="text-gray-400 hover:text-gray-700 text-xs">+</button>
+            </div>
+            <span class="font-semibold text-sm">£48.00</span>
+          </div>
+        </div>
+      </div>
+      <div class="flex gap-4 items-start">
+        <div class="w-16 h-16 rounded-xl flex items-center justify-center flex-shrink-0" style="background:linear-gradient(135deg,#BBF7D0,#6EE7B7)"><i class="fas fa-jar text-white text-xl"></i></div>
+        <div class="flex-1">
+          <p class="font-semibold text-sm">Hand &amp; Nail Conditioning Cream</p>
+          <p class="text-xs text-gray-500 mt-0.5">Unisex · 75ml</p>
+          <div class="flex items-center justify-between mt-2">
+            <div class="flex items-center gap-2 border rounded-full px-3 py-1">
+              <button class="text-gray-400 hover:text-gray-700 text-xs">−</button>
+              <span class="text-sm font-medium">1</span>
+              <button class="text-gray-400 hover:text-gray-700 text-xs">+</button>
+            </div>
+            <span class="font-semibold text-sm">£26.00</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="border-t p-5 space-y-3 bg-gray-50">
+      <div class="flex justify-between text-sm"><span class="text-gray-600">Subtotal</span><span class="font-semibold">£74.00</span></div>
+      <div class="flex justify-between text-sm"><span class="text-gray-600">Delivery</span><span class="font-semibold text-green-600">Free</span></div>
+      <div class="flex justify-between border-t pt-3"><span class="font-bold">Total</span><span class="font-bold text-lg">£74.00</span></div>
+      <button class="w-full py-3.5 rounded-full text-white font-semibold text-sm uppercase tracking-widest transition-opacity hover:opacity-90" style="background:#2D2D2D;">Checkout Securely</button>
+      <button onclick="toggleCart()" class="w-full py-3 rounded-full border font-semibold text-sm uppercase tracking-widest text-gray-700 hover:bg-gray-100 transition-colors">Continue Shopping</button>
+    </div>
+  </div>
+
+  <!-- HERO SLIDER -->
+  <section class="hero-wrap relative" style="height:clamp(480px,70vh,780px);">
+    <div id="heroTrack" class="hero-track" style="height:100%;transition:transform .8s cubic-bezier(.25,.46,.45,.94);">
+
+      <!-- Slide 1: Brand Statement -->
+      <div class="hero-slide" style="background:linear-gradient(135deg,#0a1a12 0%,#1C4A30 50%,#4A7C59 100%);">
+        <div class="absolute inset-0 flex items-center">
+          <div class="max-w-screen-xl mx-auto px-8 md:px-16 w-full">
+            <div class="max-w-xl reveal vis">
+              <span class="inline-block px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-widest mb-5 text-white" style="background:rgba(255,255,255,.12);backdrop-filter:blur(8px);">Arctic Luxury Skincare</span>
+              <h1 class="fh text-5xl md:text-7xl text-white font-light leading-tight mb-5">Serious Luxury.<br><em>Superior Results.</em></h1>
+              <p class="text-white/80 text-base md:text-lg font-light mb-8 leading-relaxed">Hand-crafted body oils and creams, unique natural facial washes and superb anti-ageing serums — created from the very finest ingredients the Arctic wilderness has to offer.</p>
+              <div class="flex flex-wrap gap-3">
+                <a href="#" class="px-7 py-3.5 rounded-full font-semibold text-sm uppercase tracking-widest text-white transition-all hover:scale-105" style="background:#4A7C59;border:1px solid rgba(255,255,255,.2);">Shop All Products</a>
+                <a href="#" class="px-7 py-3.5 rounded-full font-semibold text-sm uppercase tracking-widest text-white border border-white/40 hover:bg-white/10 transition-all">Discover Our Story</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="absolute right-12 top-1/2 -translate-y-1/2 text-white opacity-5 hidden md:block">
+          <i class="fas fa-snowflake text-[320px]"></i>
+        </div>
+      </div>
+
+      <!-- Slide 2: Women/Anti-Ageing -->
+      <div class="hero-slide" style="background:linear-gradient(135deg,#2a0a1a 0%,#6B2D72 45%,#C0576E 100%);">
+        <div class="absolute inset-0 flex items-center justify-end">
+          <div class="max-w-screen-xl mx-auto px-8 md:px-16 w-full flex justify-end">
+            <div class="max-w-lg text-right reveal vis">
+              <span class="inline-block px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-widest mb-5 text-white" style="background:rgba(255,255,255,.12);">Women's Collection</span>
+              <h1 class="fh text-5xl md:text-7xl text-white font-light leading-tight mb-5">Beautiful Skin<br><em>at Every Age</em></h1>
+              <p class="text-white/80 text-base md:text-lg font-light mb-4 leading-relaxed">We believe face-lines reveal the history of our laughter and tears — and that everything we place on our skin should be made of the purest and the best.</p>
+              <p class="text-white/65 text-sm italic mb-8">Inspired by the berry. Loved by your skin.</p>
+              <div class="flex flex-wrap gap-3 justify-end">
+                <a href="#" class="px-7 py-3.5 rounded-full font-semibold text-sm uppercase tracking-widest text-white transition-all hover:scale-105" style="background:#EC4899;">Shop Women</a>
+                <a href="#" class="px-7 py-3.5 rounded-full font-semibold text-sm uppercase tracking-widest text-white border border-white/40 hover:bg-white/10 transition-all">View Serums</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="absolute left-8 top-1/2 -translate-y-1/2 text-white opacity-5 hidden md:block">
+          <i class="fas fa-leaf text-[280px]"></i>
+        </div>
+      </div>
+
+      <!-- Slide 3: Arctic Summer -->
+      <div class="hero-slide" style="background:linear-gradient(135deg,#1a1000 0%,#5C3A1E 45%,#D97706 100%);">
+        <div class="absolute inset-0 flex items-center">
+          <div class="max-w-screen-xl mx-auto px-8 md:px-16 w-full">
+            <div class="max-w-xl reveal vis">
+              <span class="inline-block px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-widest mb-5 text-white" style="background:rgba(255,255,255,.12);">The Source of Our Power</span>
+              <h1 class="fh text-5xl md:text-7xl text-white font-light leading-tight mb-5">Seventy-Three Days<br><em>of Arctic Sun</em></h1>
+              <p class="text-white/80 text-base md:text-lg font-light mb-8 leading-relaxed">The Arctic summer culminates in a paradise of fruit-laden plants and flowers — rich in natural bioactive compounds found nowhere else on Earth. We spare no expense when it comes to these extraordinary ingredients.</p>
+              <div class="flex flex-wrap gap-3">
+                <a href="#" class="px-7 py-3.5 rounded-full font-semibold text-sm uppercase tracking-widest text-white transition-all hover:scale-105" style="background:#D97706;">Explore Ingredients</a>
+                <a href="#" class="px-7 py-3.5 rounded-full font-semibold text-sm uppercase tracking-widest text-white border border-white/40 hover:bg-white/10 transition-all">Take the Skin Quiz</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="absolute right-12 top-1/2 -translate-y-1/2 text-white opacity-5 hidden md:block">
+          <i class="fas fa-sun text-[300px]"></i>
+        </div>
+      </div>
+    </div>
+
+    <button onclick="heroMove(-1)" class="absolute left-4 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full border border-white/30 bg-black/20 backdrop-blur-sm text-white hover:bg-white/20 transition-all flex items-center justify-center">
+      <i class="fas fa-chevron-left text-sm"></i>
+    </button>
+    <button onclick="heroMove(1)" class="absolute right-4 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full border border-white/30 bg-black/20 backdrop-blur-sm text-white hover:bg-white/20 transition-all flex items-center justify-center">
+      <i class="fas fa-chevron-right text-sm"></i>
+    </button>
+    <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2.5" id="heroDots">
+      <div class="hdot act" onclick="heroGo(0)"></div>
+      <div class="hdot" onclick="heroGo(1)"></div>
+      <div class="hdot" onclick="heroGo(2)"></div>
+    </div>
+    <div class="absolute bottom-0 left-0 right-0 h-0.5 bg-white/10">
+      <div id="progBar" class="h-full prog-bar" style="background:rgba(255,255,255,.5);"></div>
+    </div>
+  </section>
+
+  <!-- TRUST BAR -->
+  <div style="background:#F8F7F5;" class="border-b border-gray-100">
+    <div class="max-w-screen-xl mx-auto px-6 py-5 grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div class="flex items-center gap-3 reveal d1">
+        <div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0" style="background:#E8F5E9;"><i class="fas fa-truck text-sm" style="color:#4A7C59;"></i></div>
+        <div>
+          <p class="text-xs font-bold uppercase tracking-wide text-gray-800">Free Delivery</p>
+          <p class="text-xs text-gray-500">On all orders over £50</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-3 reveal d2">
+        <div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0" style="background:#E8F5E9;"><i class="fas fa-hand-sparkles text-sm" style="color:#4A7C59;"></i></div>
+        <div>
+          <p class="text-xs font-bold uppercase tracking-wide text-gray-800">Hand-Crafted</p>
+          <p class="text-xs text-gray-500">Lovingly blended by hand</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-3 reveal d3">
+        <div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0" style="background:#E8F5E9;"><i class="fas fa-leaf text-sm" style="color:#4A7C59;"></i></div>
+        <div>
+          <p class="text-xs font-bold uppercase tracking-wide text-gray-800">95% Natural</p>
+          <p class="text-xs text-gray-500">Paraben-free formulations</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-3 reveal d4">
+        <div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0" style="background:#E8F5E9;"><i class="fas fa-tag text-sm" style="color:#4A7C59;"></i></div>
+        <div>
+          <p class="text-xs font-bold uppercase tracking-wide text-gray-800">Direct to You</p>
+          <p class="text-xs text-gray-500">No intermediaries. Fair prices.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3-COLUMN OFFER BANNERS -->
+  <section class="py-8 px-4 md:px-6 bg-white">
+    <div class="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-5">
+      <a href="#" class="rcard group block reveal d1">
+        <div class="relative overflow-hidden rounded-2xl h-52" style="background:linear-gradient(135deg,#1E3A5F,#2D6A8A,#38BDF8);">
+          <div class="absolute inset-0 flex flex-col justify-end p-6">
+            <span class="badge bmen mb-2 inline-block w-fit">Men's Range</span>
+            <h3 class="fh text-3xl text-white font-light">Arctic Performance<br><em>for Him</em></h3>
+            <p class="text-white/75 text-sm mt-2 mb-4">Premium actives, direct from source. Serious skincare for the modern man.</p>
+            <span class="inline-flex items-center gap-2 text-white text-xs font-bold uppercase tracking-widest">Shop Men <i class="fas fa-arrow-right transition-transform group-hover:translate-x-1"></i></span>
+          </div>
+          <div class="absolute top-4 right-4 opacity-10"><i class="fas fa-snowflake text-white text-8xl"></i></div>
+        </div>
+      </a>
+      <a href="#" class="rcard group block reveal d2">
+        <div class="relative overflow-hidden rounded-2xl h-52" style="background:linear-gradient(135deg,#6B2D72,#C0576E,#F9A8D4);">
+          <div class="absolute inset-0 flex flex-col justify-end p-6">
+            <span class="badge bwomen mb-2 inline-block w-fit">Women's Range</span>
+            <h3 class="fh text-3xl text-white font-light">Beautiful Skin<br><em>at Any Age</em></h3>
+            <p class="text-white/75 text-sm mt-2 mb-4">Anti-ageing serums and body oils crafted from the rarest Arctic botanicals.</p>
+            <span class="inline-flex items-center gap-2 text-white text-xs font-bold uppercase tracking-widest">Shop Women <i class="fas fa-arrow-right transition-transform group-hover:translate-x-1"></i></span>
+          </div>
+          <div class="absolute top-4 right-4 opacity-10"><i class="fas fa-heart text-white text-8xl"></i></div>
+        </div>
+      </a>
+      <a href="#" class="rcard group block reveal d3">
+        <div class="relative overflow-hidden rounded-2xl h-52" style="background:linear-gradient(135deg,#7C3D12,#D97706,#FDE68A);">
+          <div class="absolute inset-0 flex flex-col justify-end p-6">
+            <span class="badge bchild mb-2 inline-block w-fit">Children's Range</span>
+            <h3 class="fh text-3xl text-white font-light">Pure &amp; Gentle<br><em>From the Start</em></h3>
+            <p class="text-white/75 text-sm mt-2 mb-4">Ultra-pure, paraben-free formulas tested for even the most delicate skin.</p>
+            <span class="inline-flex items-center gap-2 text-white text-xs font-bold uppercase tracking-widest">Shop Children <i class="fas fa-arrow-right transition-transform group-hover:translate-x-1"></i></span>
+          </div>
+          <div class="absolute top-4 right-4 opacity-10"><i class="fas fa-child text-white text-8xl"></i></div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- SHOP BY RANGE -->
+  <section class="py-16 px-4 md:px-6" style="background:#F8F7F5;">
+    <div class="max-w-screen-xl mx-auto">
+      <div class="text-center mb-10 reveal">
+        <p class="text-xs font-bold uppercase tracking-widest mb-2" style="color:#4A7C59;">Crafted for Every Skin</p>
+        <h2 class="fh text-4xl md:text-5xl font-light">Shop by Range</h2>
+        <p class="text-gray-500 mt-3 text-sm max-w-md mx-auto">Discover collections thoughtfully hand-crafted for every member of the family, each with premium percentages of our finest Arctic actives.</p>
+      </div>
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
+        <a href="#" class="rcard group block reveal d1">
+          <div class="h-64 md:h-80 flex flex-col items-center justify-end pb-8 relative" style="background:linear-gradient(180deg,#BFDBFE 0%,#3B82F6 100%);">
+            <div class="absolute top-1/3 -translate-y-1/2 text-white opacity-25"><i class="fas fa-person text-8xl md:text-9xl"></i></div>
+            <div class="relative text-center">
+              <p class="text-white/80 text-xs uppercase tracking-widest font-semibold mb-1">For Him</p>
+              <h3 class="fh text-2xl md:text-3xl text-white font-light mb-3">Men</h3>
+              <span class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-white border border-white/50 rounded-full px-4 py-1.5 group-hover:bg-white/20 transition-colors">Shop Now</span>
+            </div>
+          </div>
+        </a>
+        <a href="#" class="rcard group block reveal d2">
+          <div class="h-64 md:h-80 flex flex-col items-center justify-end pb-8 relative" style="background:linear-gradient(180deg,#FBD3E9 0%,#EC4899 100%);">
+            <div class="absolute top-1/3 -translate-y-1/2 text-white opacity-25"><i class="fas fa-person-dress text-8xl md:text-9xl"></i></div>
+            <div class="relative text-center">
+              <p class="text-white/80 text-xs uppercase tracking-widest font-semibold mb-1">For Her</p>
+              <h3 class="fh text-2xl md:text-3xl text-white font-light mb-3">Women</h3>
+              <span class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-white border border-white/50 rounded-full px-4 py-1.5 group-hover:bg-white/20 transition-colors">Shop Now</span>
+            </div>
+          </div>
+        </a>
+        <a href="#" class="rcard group block reveal d3">
+          <div class="h-64 md:h-80 flex flex-col items-center justify-end pb-8 relative" style="background:linear-gradient(180deg,#FED7AA 0%,#F97316 100%);">
+            <div class="absolute top-1/3 -translate-y-1/2 text-white opacity-25"><i class="fas fa-child text-8xl md:text-9xl"></i></div>
+            <div class="relative text-center">
+              <p class="text-white/80 text-xs uppercase tracking-widest font-semibold mb-1">For Them</p>
+              <h3 class="fh text-2xl md:text-3xl text-white font-light mb-3">Children</h3>
+              <span class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-white border border-white/50 rounded-full px-4 py-1.5 group-hover:bg-white/20 transition-colors">Shop Now</span>
+            </div>
+          </div>
+        </a>
+        <a href="#" class="rcard group block reveal d4">
+          <div class="h-64 md:h-80 flex flex-col items-center justify-end pb-8 relative" style="background:linear-gradient(180deg,#BBF7D0 0%,#22C55E 100%);">
+            <div class="absolute top-1/3 -translate-y-1/2 text-white opacity-25"><i class="fas fa-people-group text-7xl md:text-8xl"></i></div>
+            <div class="relative text-center">
+              <p class="text-white/80 text-xs uppercase tracking-widest font-semibold mb-1">For Everyone</p>
+              <h3 class="fh text-2xl md:text-3xl text-white font-light mb-3">Unisex</h3>
+              <span class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-white border border-white/50 rounded-full px-4 py-1.5 group-hover:bg-white/20 transition-colors">Shop Now</span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- BRAND STORY -->
+  <section class="py-20 px-4 md:px-6 bg-white overflow-hidden">
+    <div class="max-w-screen-xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+      <div class="relative reveal d1">
+        <div class="rounded-3xl overflow-hidden h-80 md:h-[540px] relative" style="background:linear-gradient(135deg,#0a1a12,#1C4A30,#4A7C59);">
+          <div class="absolute inset-0 flex items-center justify-center text-center px-8">
+            <div>
+              <i class="fas fa-snowflake text-white/10 text-8xl mb-6 block"></i>
+              <p class="fh text-4xl italic font-light text-white/20">Arctic Wilderness</p>
+            </div>
+          </div>
+          <div class="absolute top-6 right-6 bg-white rounded-2xl p-4 shadow-lg">
+            <p class="fh text-3xl font-semibold" style="color:#4A7C59;">95%</p>
+            <p class="text-xs text-gray-500 font-medium">Natural Origin</p>
+          </div>
+          <div class="absolute bottom-6 left-6 bg-white rounded-2xl p-4 shadow-lg">
+            <p class="fh text-3xl font-semibold" style="color:#4A7C59;">73 Days</p>
+            <p class="text-xs text-gray-500 font-medium">Arctic Summer Sun</p>
+          </div>
+        </div>
+        <div class="absolute -bottom-6 -right-6 w-32 h-32 rounded-full opacity-15 hidden md:block" style="background:#4A7C59;"></div>
+      </div>
+      <div class="reveal d2">
+        <p class="text-xs font-bold uppercase tracking-widest mb-4" style="color:#4A7C59;">The Arctic Wilderness is the heartbeat of our brand</p>
+        <h2 class="fh text-4xl md:text-5xl font-light leading-tight mb-6">Ancient wisdom.<br><em>Extraordinary results.</em></h2>
+        <p class="text-gray-600 text-base leading-relaxed mb-5">The seventy-three days of Arctic summer sun culminate in a paradise of delicate, fruit-laden plants and flowers — rich in essential natural bioactive compounds found nowhere else on the planet. This extraordinary season is the heartbeat of everything we do at DeLaBaie.</p>
+        <p class="text-gray-600 text-base leading-relaxed mb-5">We use premium percentages of quality constituents from flowers, berries and bioactive plants of the Arctic Tundra, alongside natural ingredients from rare plants around the world known to possess high levels of vibrant energy. We spare no expense when it comes to ingredients — and we never will.</p>
+        <p class="text-gray-600 text-base leading-relaxed mb-8">Because we hand-craft and blend every product ourselves and sell direct to you — cutting out all intermediaries — we can keep our prices as reasonable as possible while never compromising on quality. Meticulous, ethical research into the true nature of ageing skin, sourced from trusted suppliers, lies at the heart of every formula we create.</p>
+        <!-- Beliefs -->
+        <div class="space-y-3 mb-8 border-l-2 pl-5" style="border-color:#4A7C59;">
+          <p class="text-sm text-gray-700 italic">We believe our skin is one of life's greatest miracles.</p>
+          <p class="text-sm text-gray-700 italic">We believe face-lines reveal the history of our laughter and tears.</p>
+          <p class="text-sm text-gray-700 italic">We believe it is possible to have beautiful skin at any age.</p>
+          <p class="text-sm text-gray-700 italic">We believe everything we use on it should be made of the purest and the best.</p>
+        </div>
+        <div class="flex flex-wrap gap-4">
+          <a href="#" class="px-7 py-3.5 rounded-full font-semibold text-sm uppercase tracking-widest text-white hover:opacity-90 transition-opacity" style="background:#2D2D2D;">Read Our Story</a>
+          <a href="#" class="px-7 py-3.5 rounded-full font-semibold text-sm uppercase tracking-widest border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors">View Ingredients</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOP PRODUCTS -->
+  <section class="py-16 px-4 md:px-6" style="background:#F8F7F5;">
+    <div class="max-w-screen-xl mx-auto">
+      <div class="flex items-end justify-between mb-10 reveal">
+        <div>
+          <p class="text-xs font-bold uppercase tracking-widest mb-2" style="color:#4A7C59;">Most Loved</p>
+          <h2 class="fh text-4xl md:text-5xl font-light">Best Sellers</h2>
+          <p class="text-gray-500 mt-2 text-sm">See and feel the difference. Judge our results.</p>
+        </div>
+        <a href="#" class="hidden md:inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-widest text-gray-700 hover:text-gray-900 transition-colors">View All <i class="fas fa-arrow-right text-xs"></i></a>
+      </div>
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+        <!-- Product 1 -->
+        <div class="pcard reveal d1">
+          <div class="relative h-48 overflow-hidden" style="background:linear-gradient(135deg,#FBD3E9,#F9A8D4,#E879A7);">
+            <div class="pimg absolute inset-0 flex items-center justify-center"><i class="fas fa-bottle-droplet text-white/35 text-5xl"></i></div>
+            <button class="absolute top-3 left-3 w-8 h-8 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center hover:bg-white transition-colors shadow-sm">
+              <i class="far fa-heart text-gray-500 text-xs"></i>
+            </button>
+            <span class="absolute top-3 right-3 badge bsale">Best Seller</span>
+          </div>
+          <div class="p-4">
+            <span class="badge bwomen text-[10px]">Women</span>
+            <h3 class="fh text-lg mt-2 mb-0.5 font-normal">Super Performance Facial Serum</h3>
+            <p class="text-xs text-gray-400 mb-1">Cloudberry &amp; Sea Buckthorn</p>
+            <div class="flex gap-0.5 mb-1"><i class="fas fa-star star text-xs"></i><i class="fas fa-star star text-xs"></i><i class="fas fa-star star text-xs"></i><i class="fas fa-star star text-xs"></i><i class="fas fa-star star text-xs"></i><span class="text-xs text-gray-400 ml-1">(284)</span></div>
+            <div class="flex items-center justify-between mt-3">
+              <span class="font-semibold text-gray-900">£48.00</span>
+              <button class="w-9 h-9 rounded-full text-white flex items-center justify-center hover:opacity-90 transition-opacity" style="background:#EC4899;"><i class="fas fa-plus text-xs"></i></button>
+            </div>
+          </div>
+        </div>
+        <!-- Product 2 -->
+        <div class="pcard reveal d2">
+          <div class="relative h-48 overflow-hidden" style="background:linear-gradient(135deg,#BBF7D0,#6EE7B7,#22C55E);">
+            <div class="pimg absolute inset-0 flex items-center justify-center"><i class="fas fa-jar text-white/35 text-5xl"></i></div>
+            <button class="absolute top-3 left-3 w-8 h-8 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center hover:bg-white transition-colors shadow-sm">
+              <i class="far fa-heart text-gray-500 text-xs"></i>
+            </button>
+          </div>
+          <div class="p-4">
+            <span class="badge bunisex text-[10px]">Unisex</span>
+            <h3 class="fh text-lg mt-2 mb-0.5 font-normal">Hand &amp; Nail Conditioning Cream</h3>
+            <p class="text-xs text-gray-400 mb-1">Bilberry &amp; Arctic Peat Complex</p>
+            <div class="flex gap-0.5 mb-1"><i class="fas fa-star star text-xs"></i><i class="fas fa-star star text-xs"></i><i class="fas fa-star star text-xs"></i><i class="fas fa-star star text-xs"></i><i class="fas fa-star star text-xs"></i><span class="text-xs text-gray-400 ml-1">(312)</span></div>
+            <div class="flex items-center justify-between mt-3">
+              <span class="font-semibold text-gray-900">£26.00</span>
+              <button class="w-9 h-9 rounded-full text-white flex items-center justify-center hover:opacity-90 transition-opacity" style="background:#22C55E;"><i class="fas fa-plus text-xs"></i></button>
+            </div>
+          </div>
+        </div>
+        <!-- Product 3 -->
+        <div class="pcard reveal d3">
+          <div class="relative h-48 overflow-hidden" style="background:linear-gradient(135deg,#BFDBFE,#93C5FD,#3B82F6);">
+            <div class="pimg absolute inset-0 flex items-center justify-center"><i class="fas fa-pump-soap text-white/35 text-5xl"></i></div>
+            <button class="absolute top-3 left-3 w-8 h-8 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center hover:bg-white transition-colors shadow-sm">
+              <i class="far fa-heart text-gray-500 text-xs"></i>
+            </button>
+          </div>
+          <div class="p-4">
+            <span class="badge bmen text-[10px]">Men</span>
+            <h3 class="fh text-lg mt-2 mb-0.5 font-normal">Arctic Revitalising Face Wash</h3>
+            <p class="text-xs text-gray-400 mb-1">Birch Extract &amp; Lingonberry</p>
+            <div class="flex gap-0.5 mb-1"><i class="fas fa-star star text-xs"></i><i class="fas fa-star star text-xs"></i><i class="fas fa-star star text-xs"></i><i class="fas fa-star star text-xs"></i><i class="fas fa-star-half-alt star text-xs"></i><span class="text-xs text-gray-400 ml-1">(197)</span></div>
+            <div class="flex items-center justify-between mt-3">
+              <span class="font-semibold text-gray-900">£32.00</span>
+              <button class="w-9 h-9 rounded-full text-white flex items-center justify-center hover:opacity-90 transition-opacity" style="background:#3B82F6;"><i class="fas fa-plus text-xs"></i></button>
+            </div>
+          </div>
+        </div>
+        <!-- Product 4 -->
+        <div class="pcard reveal d4">
+          <div class="relative h-48 overflow-hidden" style="background:linear-gradient(135deg,#FED7AA,#FDBA74,#F97316);">
+            <div class="pimg absolute inset-0 flex items-center justify-center"><i class="fas fa-flask text-white/35 text-5xl"></i></div>
+            <button class="absolute top-3 left-3 w-8 h-8 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center hover:bg-white transition-colors shadow-sm">
+              <i class="far fa-heart text-gray-500 text-xs"></i>
+            </button>
+          </div>
+          <div class="p-4">
+            <span class="badge bunisex text-[10px]">Unisex</span>
+            <h3 class="fh text-lg mt-2 mb-0.5 font-normal">Super Performance Foot Balm</h3>
+            <p class="text-xs text-gray-400 mb-1">Shea Butter &amp; Arctic Berry Oils</p>
+            <div class="flex gap-0.5 mb-1"><i class="fas fa-star star text-xs"></i><i class="fas fa-star star text-xs"></i><i class="fas fa-star star text-xs"></i><i class="fas fa-star star text-xs"></i><i class="fas fa-star star text-xs"></i><span class="text-xs text-gray-400 ml-1">(143)</span></div>
+            <div class="flex items-center justify-between mt-3">
+              <span class="font-semibold text-gray-900">£24.00</span>
+              <button class="w-9 h-9 rounded-full text-white flex items-center justify-center hover:opacity-90 transition-opacity" style="background:#F97316;"><i class="fas fa-plus text-xs"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-8 reveal">
+        <a href="#" class="inline-flex items-center gap-2 px-8 py-3.5 rounded-full font-semibold text-sm uppercase tracking-widest border-2 text-gray-800 hover:bg-gray-100 transition-colors" style="border-color:#2D2D2D;">View All Products <i class="fas fa-arrow-right text-xs"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY DELABAIE — TABS -->
+  <section class="py-20 px-4 md:px-6 bg-white">
+    <div class="max-w-screen-xl mx-auto">
+      <div class="text-center mb-10 reveal">
+        <p class="text-xs font-bold uppercase tracking-widest mb-2" style="color:#4A7C59;">Clinically Researched. Ethically Sourced.</p>
+        <h2 class="fh text-4xl md:text-5xl font-light">The DeLaBaie Difference</h2>
+        <p class="text-gray-500 mt-3 text-sm max-w-md mx-auto">With premium percentages of top-rated actives and 95% natural ingredients, we ensure our products will really make a difference.</p>
+      </div>
+      <div class="border-b border-gray-100 flex justify-center gap-0 mb-10 reveal overflow-x-auto">
+        <button class="tab-btn act" onclick="switchTab('ingredients',this)">Our Ingredients</button>
+        <button class="tab-btn" onclick="switchTab('ethics',this)">Our Ethics</button>
+        <button class="tab-btn" onclick="switchTab('science',this)">Our Science</button>
+      </div>
+      <div id="tab-ingredients" class="tab-pane act">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="text-center reveal d1">
+            <div class="w-16 h-16 rounded-2xl mx-auto mb-5 flex items-center justify-center" style="background:linear-gradient(135deg,#FED7AA,#D97706);"><i class="fas fa-circle-dot text-white text-2xl"></i></div>
+            <h3 class="fh text-2xl mb-3">The Cloudberry</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">A flaming amber gold, the Cloudberry is the rarest and most elusive Arctic berry — the crème de la crème of Arctic oils. Richly endowed with antioxidants, Omega fatty acids, UV-protecting carotenoids and cell-membrane-strengthening phytosterols, it is known in the far north as the Royal Berry. It features in our most prestigious formulas.</p>
+          </div>
+          <div class="text-center reveal d2">
+            <div class="w-16 h-16 rounded-2xl mx-auto mb-5 flex items-center justify-center" style="background:linear-gradient(135deg,#FBD3E9,#EC4899);"><i class="fas fa-seedling text-white text-2xl"></i></div>
+            <h3 class="fh text-2xl mb-3">Sea Buckthorn</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">Used for centuries in Arctic and Asian medicine, Sea Buckthorn Berry Oil is rich in palmitoleic acid (Omega-7) and packed with carotenoids, antioxidants and natural Vitamin E. This powerful orange oil has extraordinary skin-regenerating properties, counters harmful UV effects and has long been a traditional treatment for skin healing. We use both the berry and seed oil.</p>
+          </div>
+          <div class="text-center reveal d3">
+            <div class="w-16 h-16 rounded-2xl mx-auto mb-5 flex items-center justify-center" style="background:linear-gradient(135deg,#BFDBFE,#3B82F6);"><i class="fas fa-droplet text-white text-2xl"></i></div>
+            <h3 class="fh text-2xl mb-3">Arctic Birch Extract</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">Extracted from the white bark of Arctic Birch, this remarkable ingredient contains essential fatty acids, anti-inflammatory triterpenoids and betulinic acid. Rich in betulin and lupeol, it counteracts the damaging effects of UV light and has attracted significant attention from cancer scientists for its effect on melanoma cells. It is a cornerstone of our anti-ageing formulations.</p>
+          </div>
+        </div>
+      </div>
+      <div id="tab-ethics" class="tab-pane">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="text-center reveal d1">
+            <div class="w-16 h-16 rounded-2xl mx-auto mb-5 flex items-center justify-center" style="background:linear-gradient(135deg,#BBF7D0,#4A7C59);"><i class="fas fa-flask text-white text-2xl"></i></div>
+            <h3 class="fh text-2xl mb-3">CO2 Extraction</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">All our Arctic seed oils and plant extracts are CO2 extracted. Significant amounts of valuable bioactive compounds are lost in traditional steam extraction, but CO2 is a gentler and more effective method of preserving the natural plant bio-actives. Our pure extraction processes also ensure all extracts are free from solvents and heavy metal residues.</p>
+          </div>
+          <div class="text-center reveal d2">
+            <div class="w-16 h-16 rounded-2xl mx-auto mb-5 flex items-center justify-center" style="background:linear-gradient(135deg,#FBD3E9,#EC4899);"><i class="fas fa-shield-heart text-white text-2xl"></i></div>
+            <h3 class="fh text-2xl mb-3">Paraben-Free Formulas</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">All our blended oils are preservative free, and our creams and lotions are paraben free. We use only effective broad-spectrum preservatives where necessary to inhibit bacterial, fungal and yeast growth. Our Squalane is always plant-derived from olive oil — never from threatened shark species — reflecting our commitment to responsible sourcing at every level.</p>
+          </div>
+          <div class="text-center reveal d3">
+            <div class="w-16 h-16 rounded-2xl mx-auto mb-5 flex items-center justify-center" style="background:linear-gradient(135deg,#FED7AA,#F97316);"><i class="fas fa-earth-europe text-white text-2xl"></i></div>
+            <h3 class="fh text-2xl mb-3">Ethical Sourcing</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">Meticulous, ethical research into the true nature of ageing skin from trusted suppliers lies at the heart of the ingredients we use. Our Arctic Peat is collected only by registered suppliers committed to preserving the fragility of the eco-system. We believe beautiful skin should never come at the expense of the natural world that provides our finest ingredients.</p>
+          </div>
+        </div>
+      </div>
+      <div id="tab-science" class="tab-pane">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="text-center reveal d1">
+            <div class="w-16 h-16 rounded-2xl mx-auto mb-5 flex items-center justify-center" style="background:linear-gradient(135deg,#BFDBFE,#3B82F6);"><i class="fas fa-microscope text-white text-2xl"></i></div>
+            <h3 class="fh text-2xl mb-3">Clinically Researched</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">We use premium percentages of top-rated actives backed by clinical research. Every ingredient we select has been chosen on the basis of its proven efficacy in treating the true nature of ageing skin. We don't use token amounts of active ingredients — we use levels at which research demonstrates measurable results you can see and feel.</p>
+          </div>
+          <div class="text-center reveal d2">
+            <div class="w-16 h-16 rounded-2xl mx-auto mb-5 flex items-center justify-center" style="background:linear-gradient(135deg,#BBF7D0,#22C55E);"><i class="fas fa-dna text-white text-2xl"></i></div>
+            <h3 class="fh text-2xl mb-3">Ancient Arctic Wisdom</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">A knowledge and skill of the very best of skincare gained from ancient Arctic wisdom underpins our entire formulation philosophy. Plants and berries that survive the extreme darkness and cold of the Arctic winter, then flourish in seventy-three days of continuous summer sunlight, develop a remarkable concentration of bioactive compounds that are scientifically proven to benefit human skin.</p>
+          </div>
+          <div class="text-center reveal d3">
+            <div class="w-16 h-16 rounded-2xl mx-auto mb-5 flex items-center justify-center" style="background:linear-gradient(135deg,#E9D5FF,#8B5CF6);"><i class="fas fa-hand-sparkles text-white text-2xl"></i></div>
+            <h3 class="fh text-2xl mb-3">Hand-Crafted Quality</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">Every DeLaBaie product is lovingly hand-crafted and blended in small batches to ensure consistent quality and freshness of actives. By selling direct to you without intermediaries, we can invest that saving back into premium ingredient percentages rather than marketing margins — meaning you receive genuinely superior skincare at a price that reflects our values, not our overheads.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KEY INGREDIENTS SPOTLIGHT -->
+  <section class="py-16 px-4 md:px-6" style="background:#F8F7F5;">
+    <div class="max-w-screen-xl mx-auto">
+      <div class="text-center mb-10 reveal">
+        <p class="text-xs font-bold uppercase tracking-widest mb-2" style="color:#4A7C59;">The Arctic Pharmacy</p>
+        <h2 class="fh text-4xl md:text-5xl font-light">Hero Ingredients</h2>
+        <p class="text-gray-500 mt-3 text-sm max-w-lg mx-auto">We spare no expense when it comes to ingredients. Every bioactive compound we use is sourced from the finest raw materials on Earth.</p>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+        <div class="ingr-card text-center bg-white reveal d1">
+          <div class="w-12 h-12 rounded-full mx-auto mb-3 flex items-center justify-center" style="background:linear-gradient(135deg,#FDE68A,#D97706);"><i class="fas fa-circle text-white text-lg"></i></div>
+          <p class="fh text-base font-normal mb-1">Cloudberry</p>
+          <p class="text-xs text-gray-400 leading-relaxed">The Royal Berry. Omega-rich antioxidant powerhouse.</p>
+        </div>
+        <div class="ingr-card text-center bg-white reveal d2">
+          <div class="w-12 h-12 rounded-full mx-auto mb-3 flex items-center justify-center" style="background:linear-gradient(135deg,#FCA5A5,#EF4444);"><i class="fas fa-droplet text-white text-lg"></i></div>
+          <p class="fh text-base font-normal mb-1">Sea Buckthorn</p>
+          <p class="text-xs text-gray-400 leading-relaxed">Omega-7 rich. Powerful skin regeneration and UV defence.</p>
+        </div>
+        <div class="ingr-card text-center bg-white reveal d3">
+          <div class="w-12 h-12 rounded-full mx-auto mb-3 flex items-center justify-center" style="background:linear-gradient(135deg,#BBF7D0,#22C55E);"><i class="fas fa-leaf text-white text-lg"></i></div>
+          <p class="fh text-base font-normal mb-1">Bilberry Seed</p>
+          <p class="text-xs text-gray-400 leading-relaxed">Multi-purpose. Barrier repair and free radical defence.</p>
+        </div>
+        <div class="ingr-card text-center bg-white reveal d4">
+          <div class="w-12 h-12 rounded-full mx-auto mb-3 flex items-center justify-center" style="background:linear-gradient(135deg,#BFDBFE,#3B82F6);"><i class="fas fa-tree text-white text-lg"></i></div>
+          <p class="fh text-base font-normal mb-1">Arctic Birch</p>
+          <p class="text-xs text-gray-400 leading-relaxed">Anti-inflammatory betulin. UV damage counteraction.</p>
+        </div>
+        <div class="ingr-card text-center bg-white reveal d5">
+          <div class="w-12 h-12 rounded-full mx-auto mb-3 flex items-center justify-center" style="background:linear-gradient(135deg,#FBD3E9,#EC4899);"><i class="fas fa-seedling text-white text-lg"></i></div>
+          <p class="fh text-base font-normal mb-1">Cranberry Seed</p>
+          <p class="text-xs text-gray-400 leading-relaxed">Rare tocotrienols. Vitamin E at 40–60× concentration.</p>
+        </div>
+        <div class="ingr-card text-center bg-white reveal d5">
+          <div class="w-12 h-12 rounded-full mx-auto mb-3 flex items-center justify-center" style="background:linear-gradient(135deg,#E9D5FF,#8B5CF6);"><i class="fas fa-flask text-white text-lg"></i></div>
+          <p class="fh text-base font-normal mb-1">Arctic Peat</p>
+          <p class="text-xs text-gray-400 leading-relaxed">Thousands of years. Anti-inflammatory plant sterols.</p>
+        </div>
+      </div>
+      <div class="text-center mt-8 reveal">
+        <a href="#" class="inline-flex items-center gap-2 px-7 py-3 rounded-full font-semibold text-sm uppercase tracking-widest border-2 text-gray-800 hover:bg-gray-100 transition-colors" style="border-color:#4A7C59;color:#4A7C59;">View All Ingredients <i class="fas fa-arrow-right text-xs"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS ON SALE -->
+  <section class="py-16 px-4 md:px-6" style="background:#2D2D2D;">
+    <div class="max-w-screen-xl mx-auto">
+      <div class="text-center mb-10 reveal">
+        <span class="inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest text-white mb-3" style="background:#EF4444;">Limited Time Offer</span>
+        <h2 class="fh text-4xl md:text-5xl font-light text-white">On Sale Now</h2>
+        <p class="text-white/60 mt-3 text-sm">Exceptional skincare at unmissable prices. While stocks last.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="rounded-2xl overflow-hidden flex flex-col md:flex-row reveal d1" style="background:#3A3A3A;">
+          <div class="h-48 md:h-auto md:w-48 flex-shrink-0 flex items-center justify-center" style="background:linear-gradient(135deg,#FBD3E9,#EC4899);">
+            <div class="text-center p-6">
+              <i class="fas fa-bottle-droplet text-white text-4xl mb-3 block opacity-80"></i>
+              <span class="badge bsale">30% Off</span>
+            </div>
+          </div>
+          <div class="p-6 flex flex-col justify-center">
+            <span class="badge bwomen text-[10px] mb-3 inline-block w-fit">Women</span>
+            <h3 class="fh text-2xl text-white mb-2">Arctic Berry Renewal Mask</h3>
+            <p class="text-white/60 text-sm leading-relaxed mb-4">An overnight treatment mask enriched with Cloudberry, Lingonberry and Raspberry Seed Oil. Wake to visibly renewed skin — firmer, brighter and deeply nourished.</p>
+            <div class="flex items-center gap-3 mb-5">
+              <span class="text-white/40 line-through text-sm">£54.00</span>
+              <span class="text-white font-bold text-xl">£37.80</span>
+            </div>
+            <a href="#" class="inline-flex items-center gap-2 px-6 py-2.5 rounded-full font-semibold text-sm uppercase tracking-widest text-white hover:opacity-90 transition-opacity w-fit" style="background:#EC4899;">Add to Bag</a>
+          </div>
+        </div>
+        <div class="rounded-2xl overflow-hidden flex flex-col md:flex-row reveal d2" style="background:#3A3A3A;">
+          <div class="h-48 md:h-auto md:w-48 flex-shrink-0 flex items-center justify-center" style="background:linear-gradient(135deg,#BBF7D0,#22C55E);">
+            <div class="text-center p-6">
+              <i class="fas fa-flask text-white text-4xl mb-3 block opacity-80"></i>
+              <span class="badge bsale">25% Off</span>
+            </div>
+          </div>
+          <div class="p-6 flex flex-col justify-center">
+            <span class="badge bunisex text-[10px] mb-3 inline-block w-fit">Unisex</span>
+            <h3 class="fh text-2xl text-white mb-2">Arctic Vitality Body Oil</h3>
+            <p class="text-white/60 text-sm leading-relaxed mb-4">A luxurious blend of Sea Buckthorn, Jojoba, Bilberry and Strawberry Seed Oils. Hydrates, conditions and protects — absorbing rapidly without residue. A true whole-body treat.</p>
+            <div class="flex items-center gap-3 mb-5">
+              <span class="text-white/40 line-through text-sm">£58.00</span>
+              <span class="text-white font-bold text-xl">£43.50</span>
+            </div>
+            <a href="#" class="inline-flex items-center gap-2 px-6 py-2.5 rounded-full font-semibold text-sm uppercase tracking-widest text-white hover:opacity-90 transition-opacity w-fit" style="background:#22C55E;">Add to Bag</a>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-8 reveal">
+        <a href="#" class="inline-flex items-center gap-2 px-7 py-3 rounded-full font-semibold text-sm uppercase tracking-widest text-white border border-white/30 hover:bg-white/10 transition-colors">View All Sale Items <i class="fas fa-arrow-right text-xs"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="py-20 px-4 md:px-6 bg-white">
+    <div class="max-w-screen-xl mx-auto">
+      <div class="text-center mb-10 reveal">
+        <p class="text-xs font-bold uppercase tracking-widest mb-2" style="color:#4A7C59;">Real Stories</p>
+        <h2 class="fh text-4xl md:text-5xl font-light">See &amp; Feel the Difference</h2>
+        <div class="flex justify-center items-center gap-1 mt-3">
+          <i class="fas fa-star star"></i><i class="fas fa-star star"></i><i class="fas fa-star star"></i><i class="fas fa-star star"></i><i class="fas fa-star star"></i>
+          <span class="text-sm text-gray-500 ml-2">4.9 / 5 · Verified Customer Reviews</span>
+        </div>
+      </div>
+      <div class="relative overflow-hidden reveal">
+        <div id="testiTrack" class="ttrack">
+          <!-- Wendy - real review -->
+          <div class="tcard px-2">
+            <div class="bg-gray-50 rounded-2xl p-6 md:p-8 h-full">
+              <div class="flex gap-0.5 mb-4"><i class="fas fa-star star text-sm"></i><i class="fas fa-star star text-sm"></i><i class="fas fa-star star text-sm"></i><i class="fas fa-star star text-sm"></i><i class="fas fa-star star text-sm"></i></div>
+              <p class="fh text-xl italic text-gray-700 leading-relaxed mb-3">"Over the last decade I'd had a bad allergy to household dust and to charcoal. My hands were always red and sore with recurring eczema. With the DeLaBaie Hand and Nail Conditioning Cream this has completely cleared up and I've had no problems since I started using it a few years ago."</p>
+              <p class="text-gray-500 text-sm leading-relaxed mb-6">"It conditions the skin so well and I love the fragrance too. I've also been using the DeLaBaie Super Performance Foot Balm for some years and never get the cracked heels I used to get, especially in winter. Very grateful for all the work that has gone into these creams."</p>
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-sm" style="background:#4A7C59;">W</div>
+                <div>
+                  <p class="font-semibold text-sm">Wendy</p>
+                  <p class="text-xs text-gray-500">Verified Customer · Hand Cream &amp; Foot Balm</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Testi 2 -->
+          <div class="tcard px-2">
+            <div class="bg-gray-50 rounded-2xl p-6 md:p-8 h-full">
+              <div class="flex gap-0.5 mb-4"><i class="fas fa-star star text-sm"></i><i class="fas fa-star star text-sm"></i><i class="fas fa-star star text-sm"></i><i class="fas fa-star star text-sm"></i><i class="fas fa-star star text-sm"></i></div>
+              <p class="fh text-xl italic text-gray-700 leading-relaxed mb-6">"I've tried dozens of facial serums over the years and nothing has come close to the DeLaBaie Super Performance Serum. Within three weeks my skin tone was visibly more even, fine lines softer and my complexion genuinely luminous. The Cloudberry and Sea Buckthorn combination is extraordinary."</p>
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-sm" style="background:#EC4899;">S</div>
+                <div>
+                  <p class="font-semibold text-sm">Sophie M.</p>
+                  <p class="text-xs text-gray-500">Verified Customer · Women's Serum Range</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Testi 3 -->
+          <div class="tcard px-2">
+            <div class="bg-gray-50 rounded-2xl p-6 md:p-8 h-full">
+              <div class="flex gap-0.5 mb-4"><i class="fas fa-star star text-sm"></i><i class="fas fa-star star text-sm"></i><i class="fas fa-star star text-sm"></i><i class="fas fa-star star text-sm"></i><i class="fas fa-star star text-sm"></i></div>
+              <p class="fh text-xl italic text-gray-700 leading-relaxed mb-6">"As a man I was sceptical about skincare, but my wife persuaded me to try the Arctic Face Wash and men's moisturiser. Three months on I won't be going back. The ingredients list reads like a nature documentary — Birch Extract, Lingonberry, Juniper Sprout — and my skin has never looked healthier."</p>
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-sm" style="background:#3B82F6;">J</div>
+                <div>
+                  <p class="font-semibold text-sm">James T.</p>
+                  <p class="text-xs text-gray-500">Verified Customer · Men's Range</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Testi 4 -->
+          <div class="tcard px-2">
+            <div class="bg-gray-50 rounded-2xl p-6 md:p-8 h-full">
+              <div class="flex gap-0.5 mb-4"><i class="fas fa-star star text-sm"></i><i class="fas fa-star star text-sm"></i><i class="fas fa-star star text-sm"></i><i class="fas fa-star star text-sm"></i><i class="fas fa-star star text-sm"></i></div>
+              <p class="fh text-xl italic text-gray-700 leading-relaxed mb-6">"My daughter has sensitive, eczema-prone skin and I am extraordinarily careful about what I let her use. The DeLaBaie children's range is the only one I've found where I trust every single ingredient. Pure, gentle, and it actually works. She won't use anything else now — and frankly, neither will I."</p>
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-sm" style="background:#F97316;">C</div>
+                <div>
+                  <p class="font-semibold text-sm">Claire B.</p>
+                  <p class="text-xs text-gray-500">Verified Customer · Children's Range</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Testi 5 -->
+          <div class="tcard px-2">
+            <div class="bg-gray-50 rounded-2xl p-6 md:p-8 h-full">
+              <div class="flex gap-0.5 mb-4"><i class="fas fa-star star text-sm"></i><i class="fas fa-star star text-sm"></i><i class="fas fa-star star text-sm"></i><i class="fas fa-star star text-sm"></i><i class="fas fa-star-half-alt star text-sm"></i></div>
+              <p class="fh text-xl italic text-gray-700 leading-relaxed mb-6">"What I love most about DeLaBaie is that you can see the integrity behind every product. These aren't marketing claims — the ingredients are genuinely there at meaningful percentages. The Arctic Berry Body Oil has become a non-negotiable part of my morning routine. Treat yourself to a beautiful experience."</p>
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-sm" style="background:#22C55E;">A</div>
+                <div>
+                  <p class="font-semibold text-sm">Amara K.</p>
+                  <p class="text-xs text-gray-500">Verified Customer · Unisex Range</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="flex justify-center items-center gap-5 mt-8">
+          <button onclick="testiMove(-1)" class="w-10 h-10 rounded-full border border-gray-200 text-gray-500 hover:border-gray-400 hover:text-gray-700 transition-colors flex items-center justify-center">
+            <i class="fas fa-chevron-left text-xs"></i>
+          </button>
+          <div id="testiDots" class="flex gap-2"></div>
+          <button onclick="testiMove(1)" class="w-10 h-10 rounded-full border border-gray-200 text-gray-500 hover:border-gray-400 hover:text-gray-700 transition-colors flex items-center justify-center">
+            <i class="fas fa-chevron-right text-xs"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKIN QUIZ CTA -->
+  <div class="py-14 px-4" style="background:linear-gradient(135deg,#0a1a12,#1C4A30,#4A7C59);">
+    <div class="max-w-2xl mx-auto text-center reveal">
+      <i class="fas fa-snowflake text-white/20 text-5xl mb-5 block"></i>
+      <h2 class="fh text-3xl md:text-4xl text-white font-light mb-3">Not Sure Where to Begin?</h2>
+      <p class="text-white/75 text-sm mb-7 leading-relaxed">Take our two-minute Arctic Skin Profile Quiz. Answer a few simple questions about your skin, concerns and lifestyle and we'll recommend the perfect DeLaBaie routine — personal, precise and hand-crafted for you.</p>
+      <a href="#" class="inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-sm uppercase tracking-widest bg-white hover:bg-gray-100 transition-colors" style="color:#2D2D2D;">Take the Quiz <i class="fas fa-arrow-right text-xs"></i></a>
+    </div>
+  </div>
+
+  <!-- UGC GALLERY -->
+  <section class="py-16 px-4 md:px-6" style="background:#F8F7F5;">
+    <div class="max-w-screen-xl mx-auto">
+      <div class="text-center mb-10 reveal">
+        <p class="text-xs font-bold uppercase tracking-widest mb-2" style="color:#4A7C59;">Community</p>
+        <h2 class="fh text-4xl md:text-5xl font-light">#DeLaBaie</h2>
+        <p class="text-gray-500 mt-3 text-sm">Inspired by the berry. Loved by your skin. Tag us to be featured.</p>
+      </div>
+      <div class="grid grid-cols-3 gap-2 md:gap-3 reveal">
+        <div class="gitem aspect-square" onclick="openLbox(0)" style="background:linear-gradient(135deg,#FBD3E9,#EC4899)">
+          <div class="gthumb w-full h-full flex items-center justify-center"><i class="fas fa-bottle-droplet text-white/50 text-3xl md:text-4xl"></i></div>
+        </div>
+        <div class="gitem aspect-square" onclick="openLbox(1)" style="background:linear-gradient(135deg,#FDE68A,#D97706)">
+          <div class="gthumb w-full h-full flex items-center justify-center"><i class="fas fa-circle-dot text-white/50 text-3xl md:text-4xl"></i></div>
+        </div>
+        <div class="gitem aspect-square" onclick="openLbox(2)" style="background:linear-gradient(135deg,#BBF7D0,#22C55E)">
+          <div class="gthumb w-full h-full flex items-center justify-center"><i class="fas fa-jar text-white/50 text-3xl md:text-4xl"></i></div>
+        </div>
+        <div class="gitem aspect-square" onclick="openLbox(3)" style="background:linear-gradient(135deg,#FCA5A5,#EF4444)">
+          <div class="gthumb w-full h-full flex items-center justify-center"><i class="fas fa-droplet text-white/50 text-3xl md:text-4xl"></i></div>
+        </div>
+        <div class="gitem aspect-square" onclick="openLbox(4)" style="background:linear-gradient(135deg,#0a1a12,#4A7C59)">
+          <div class="gthumb w-full h-full flex items-center justify-center"><i class="fas fa-snowflake text-white/50 text-3xl md:text-4xl"></i></div>
+        </div>
+        <div class="gitem aspect-square" onclick="openLbox(5)" style="background:linear-gradient(135deg,#6B2D72,#C0576E)">
+          <div class="gthumb w-full h-full flex items-center justify-center"><i class="fas fa-flask text-white/50 text-3xl md:text-4xl"></i></div>
+        </div>
+        <div class="gitem aspect-square" onclick="openLbox(6)" style="background:linear-gradient(135deg,#BFDBFE,#3B82F6)">
+          <div class="gthumb w-full h-full flex items-center justify-center"><i class="fas fa-pump-soap text-white/50 text-3xl md:text-4xl"></i></div>
+        </div>
+        <div class="gitem aspect-square" onclick="openLbox(7)" style="background:linear-gradient(135deg,#7C3D12,#FDE68A)">
+          <div class="gthumb w-full h-full flex items-center justify-center"><i class="fas fa-sun text-white/50 text-3xl md:text-4xl"></i></div>
+        </div>
+        <div class="gitem aspect-square" onclick="openLbox(8)" style="background:linear-gradient(135deg,#1C4A30,#6FB87F)">
+          <div class="gthumb w-full h-full flex items-center justify-center"><i class="fas fa-leaf text-white/50 text-3xl md:text-4xl"></i></div>
+        </div>
+      </div>
+      <div class="text-center mt-6 reveal">
+        <a href="#" class="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-widest hover:opacity-75 transition-opacity" style="color:#4A7C59;"><i class="fab fa-instagram"></i> Follow @DeLaBaieSkin</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- JOURNAL -->
+  <section class="py-20 px-4 md:px-6 bg-white">
+    <div class="max-w-screen-xl mx-auto">
+      <div class="flex items-end justify-between mb-10 reveal">
+        <div>
+          <p class="text-xs font-bold uppercase tracking-widest mb-2" style="color:#4A7C59;">Skincare Intelligence</p>
+          <h2 class="fh text-4xl md:text-5xl font-light">The DeLaBaie Journal</h2>
+        </div>
+        <a href="#" class="hidden md:inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-widest text-gray-700 hover:text-gray-900 transition-colors">All Articles <i class="fas fa-arrow-right text-xs"></i></a>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <article class="group cursor-pointer reveal d1">
+          <div class="rounded-2xl overflow-hidden h-48 mb-5" style="background:linear-gradient(135deg,#FDE68A,#D97706);">
+            <div class="w-full h-full flex items-center justify-center group-hover:scale-105 transition-transform duration-500">
+              <i class="fas fa-sun text-white/30 text-6xl"></i>
+            </div>
+          </div>
+          <p class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-2">Arctic Ingredients · 12 March 2025</p>
+          <h3 class="fh text-2xl mb-2 group-hover:text-[#4A7C59] transition-colors">Seventy-Three Days of Sun: Why Arctic Berries are Nature's Finest Actives</h3>
+          <p class="text-gray-500 text-sm leading-relaxed mb-4">Plants that survive an Arctic winter and then flourish under continuous midsummer sun develop a remarkable concentration of bioactive compounds. We explain the extraordinary science behind our source ingredients.</p>
+          <a href="#" class="text-xs font-bold uppercase tracking-widest inline-flex items-center gap-1.5 hover:gap-2.5 transition-all" style="color:#4A7C59;">Read More <i class="fas fa-arrow-right"></i></a>
+        </article>
+        <article class="group cursor-pointer reveal d2">
+          <div class="rounded-2xl overflow-hidden h-48 mb-5" style="background:linear-gradient(135deg,#0a1a12,#4A7C59);">
+            <div class="w-full h-full flex items-center justify-center group-hover:scale-105 transition-transform duration-500">
+              <i class="fas fa-snowflake text-white/30 text-6xl"></i>
+            </div>
+          </div>
+          <p class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-2">Skincare Knowledge · 5 March 2025</p>
+          <h3 class="fh text-2xl mb-2 group-hover:text-[#4A7C59] transition-colors">Understanding Skin Ageing: What the Science Actually Tells Us</h3>
+          <p class="text-gray-500 text-sm leading-relaxed mb-4">Meticulous research into the true nature of ageing skin is at the heart of every formula we create. Here we share what we've learned — and explain why most skincare products simply don't use enough of the right actives.</p>
+          <a href="#" class="text-xs font-bold uppercase tracking-widest inline-flex items-center gap-1.5 hover:gap-2.5 transition-all" style="color:#4A7C59;">Read More <i class="fas fa-arrow-right"></i></a>
+        </article>
+        <article class="group cursor-pointer reveal d3">
+          <div class="rounded-2xl overflow-hidden h-48 mb-5" style="background:linear-gradient(135deg,#FBD3E9,#6B2D72);">
+            <div class="w-full h-full flex items-center justify-center group-hover:scale-105 transition-transform duration-500">
+              <i class="fas fa-hand-sparkles text-white/30 text-6xl"></i>
+            </div>
+          </div>
+          <p class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-2">Our Story · 25 February 2025</p>
+          <h3 class="fh text-2xl mb-2 group-hover:text-[#4A7C59] transition-colors">Why We Hand-Craft Every Product and Sell Direct to You</h3>
+          <p class="text-gray-500 text-sm leading-relaxed mb-4">By avoiding intermediary selling we can do something other skincare brands cannot — invest our margin back into premium ingredient percentages. This is why our customers can see and feel the difference from the very first application.</p>
+          <a href="#" class="text-xs font-bold uppercase tracking-widest inline-flex items-center gap-1.5 hover:gap-2.5 transition-all" style="color:#4A7C59;">Read More <i class="fas fa-arrow-right"></i></a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="py-20 px-4" style="background:#1C4A30;">
+    <div class="max-w-2xl mx-auto text-center reveal">
+      <p class="text-xs font-bold uppercase tracking-widest text-white/50 mb-3">Join the DeLaBaie Community</p>
+      <h2 class="fh text-4xl md:text-5xl text-white font-light mb-4">Skin Wisdom,<br><em>Delivered</em></h2>
+      <p class="text-white/70 text-sm mb-8 leading-relaxed">Subscribe for expert skincare advice drawn from ancient Arctic wisdom, exclusive new arrivals, member-only offers and behind-the-scenes stories from our formulation studio. New subscribers receive 15% off their first order.</p>
+      <form onsubmit="subForm(event)" class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto mb-5">
+        <input type="email" id="emailInput" placeholder="Your email address" required class="flex-1 px-5 py-3.5 rounded-full text-sm outline-none bg-white/10 border border-white/20 text-white placeholder-white/40 focus:bg-white/15 transition-colors">
+        <button type="submit" class="px-7 py-3.5 rounded-full font-semibold text-sm uppercase tracking-widest bg-white hover:bg-gray-100 transition-colors flex-shrink-0" style="color:#2D2D2D;">Subscribe</button>
+      </form>
+      <p id="subMsg" class="text-green-300 text-sm font-medium" style="display:none;">Welcome! Check your inbox for your exclusive 15% discount code.</p>
+      <p class="text-white/40 text-xs">No spam, ever. Unsubscribe at any time. <a href="#" class="underline hover:text-white/70">Privacy Policy</a></p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="background:#2D2D2D;" class="text-white">
+    <div class="max-w-screen-xl mx-auto px-6 pt-16 pb-10 grid grid-cols-2 md:grid-cols-4 gap-8 border-b border-white/10">
+      <div class="col-span-2 md:col-span-1">
+        <div class="fh text-2xl italic font-light mb-4">De La<span style="color:#6FB87F;font-weight:600;font-style:normal"> Baie</span></div>
+        <p class="text-white/50 text-sm leading-relaxed mb-2">Serious luxury. Superior results. Hand-crafted skincare from the finest ingredients the Arctic wilderness has to offer.</p>
+        <p class="text-white/30 text-xs italic mb-5">Inspired by the berry. Loved by your skin.</p>
+        <div class="flex gap-3">
+          <a href="#" class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:border-white/50 hover:text-white transition-all"><i class="fab fa-instagram text-sm"></i></a>
+          <a href="#" class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:border-white/50 hover:text-white transition-all"><i class="fab fa-tiktok text-sm"></i></a>
+          <a href="#" class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:border-white/50 hover:text-white transition-all"><i class="fab fa-facebook text-sm"></i></a>
+          <a href="#" class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:border-white/50 hover:text-white transition-all"><i class="fab fa-pinterest text-sm"></i></a>
+          <a href="#" class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:border-white/50 hover:text-white transition-all"><i class="fab fa-youtube text-sm"></i></a>
+        </div>
+      </div>
+      <div>
+        <h4 class="text-xs font-bold uppercase tracking-widest text-white/40 mb-4">Quick Shop</h4>
+        <ul class="space-y-2.5">
+          <li><a href="#" class="text-sm text-white/70 hover:text-white transition-colors">New Arrivals</a></li>
+          <li><a href="#" class="text-sm text-white/70 hover:text-white transition-colors">Best Sellers</a></li>
+          <li><a href="#" class="text-sm text-blue-400 hover:text-blue-300 transition-colors">Men's Range</a></li>
+          <li><a href="#" class="text-sm text-pink-400 hover:text-pink-300 transition-colors">Women's Range</a></li>
+          <li><a href="#" class="text-sm text-orange-400 hover:text-orange-300 transition-colors">Children's Range</a></li>
+          <li><a href="#" class="text-sm text-green-400 hover:text-green-300 transition-colors">Unisex Range</a></li>
+          <li><a href="#" class="text-sm text-red-400 hover:text-red-300 font-semibold transition-colors">Sale</a></li>
+          <li><a href="#" class="text-sm text-white/70 hover:text-white transition-colors">Gift Sets</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-xs font-bold uppercase tracking-widest text-white/40 mb-4">Learn</h4>
+        <ul class="space-y-2.5">
+          <li><a href="#" class="text-sm text-white/70 hover:text-white transition-colors">Our Ingredients A–Z</a></li>
+          <li><a href="#" class="text-sm text-white/70 hover:text-white transition-colors">Arctic Skincare Journal</a></li>
+          <li><a href="#" class="text-sm text-white/70 hover:text-white transition-colors">Skincare Quiz</a></li>
+          <li><a href="#" class="text-sm text-white/70 hover:text-white transition-colors">Delivery Information</a></li>
+          <li><a href="#" class="text-sm text-white/70 hover:text-white transition-colors">Returns &amp; Exchanges</a></li>
+          <li><a href="#" class="text-sm text-white/70 hover:text-white transition-colors">Track My Order</a></li>
+          <li><a href="#" class="text-sm text-white/70 hover:text-white transition-colors">FAQs</a></li>
+          <li><a href="#" class="text-sm text-white/70 hover:text-white transition-colors">Contact Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-xs font-bold uppercase tracking-widest text-white/40 mb-4">Contact</h4>
+        <ul class="space-y-3 mb-5">
+          <li class="flex items-start gap-2.5 text-sm text-white/60"><i class="fas fa-envelope mt-0.5 text-xs" style="color:#6FB87F;"></i><span>hello@delabaie.com</span></li>
+          <li class="flex items-start gap-2.5 text-sm text-white/60"><i class="fas fa-clock mt-0.5 text-xs" style="color:#6FB87F;"></i><span>Mon–Fri, 9:00–17:30</span></li>
+          <li class="flex items-start gap-2.5 text-sm text-white/60"><i class="fas fa-comment mt-0.5 text-xs" style="color:#6FB87F;"></i><span>Live chat available in-store</span></li>
+        </ul>
+        <div class="bg-white/5 rounded-xl p-3 border border-white/10">
+          <p class="text-xs text-white/50 mb-2">Secure Payment Methods</p>
+          <div class="flex flex-wrap gap-2 items-center">
+            <i class="fab fa-cc-visa text-2xl text-white/60 hover:text-white transition-colors cursor-default" title="Visa"></i>
+            <i class="fab fa-cc-mastercard text-2xl text-white/60 hover:text-white transition-colors cursor-default" title="Mastercard"></i>
+            <i class="fab fa-cc-amex text-2xl text-white/60 hover:text-white transition-colors cursor-default" title="Amex"></i>
+            <i class="fab fa-cc-paypal text-2xl text-white/60 hover:text-white transition-colors cursor-default" title="PayPal"></i>
+            <i class="fab fa-apple-pay text-2xl text-white/60 hover:text-white transition-colors cursor-default" title="Apple Pay"></i>
+            <i class="fab fa-google-pay text-2xl text-white/60 hover:text-white transition-colors cursor-default" title="Google Pay"></i>
+            <span class="text-[10px] font-bold text-white/40 border border-white/20 rounded px-1.5 py-0.5">Klarna</span>
+            <span class="text-[10px] font-bold text-white/40 border border-white/20 rounded px-1.5 py-0.5">Clearpay</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="max-w-screen-xl mx-auto px-6 py-5 flex flex-col md:flex-row items-center justify-between gap-3">
+      <p class="text-white/40 text-xs">© 2025 DeLaBaie Skincare. All rights reserved.</p>
+      <div class="flex gap-4 flex-wrap justify-center">
+        <a href="#" class="text-white/40 text-xs hover:text-white/70 transition-colors">Privacy Policy</a>
+        <a href="#" class="text-white/40 text-xs hover:text-white/70 transition-colors">Terms &amp; Conditions</a>
+        <a href="#" class="text-white/40 text-xs hover:text-white/70 transition-colors">Cookie Settings</a>
+        <a href="#" class="text-white/40 text-xs hover:text-white/70 transition-colors">Accessibility</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- OFFERS PANEL (sits above mobile bar) -->
+  <div id="offers-panel" class="lg:hidden fixed left-0 right-0 z-170 transition-all duration-350 ease-in-out" style="bottom:48px;transform:translateY(100%);opacity:0;pointer-events:none;z-index:170;">
+    <div style="background:#1C2B1C;border-top:2px solid #4A7C59;" class="px-4 py-3">
+      <div class="flex items-center justify-between mb-3">
+        <p class="text-xs font-bold uppercase tracking-widest text-white/50">Current Offers</p>
+        <button onclick="toggleOffers()" class="text-white/40 hover:text-white transition-colors text-xs"><i class="fas fa-times"></i></button>
+      </div>
+      <ul class="space-y-2">
+        <li class="flex items-start gap-3 py-2 border-b border-white/10">
+          <span class="mt-0.5 w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 text-[10px] font-bold text-white" style="background:#4A7C59;">%</span>
+          <div>
+            <p class="text-white text-sm font-medium">15% off your first order</p>
+            <p class="text-white/50 text-xs">Use code <strong class="text-white">DELABAIE15</strong> at checkout</p>
+          </div>
+        </li>
+        <li class="flex items-start gap-3 py-2 border-b border-white/10">
+          <span class="mt-0.5 w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 text-[10px] font-bold text-white" style="background:#EF4444;">!</span>
+          <div>
+            <p class="text-white text-sm font-medium">30% off Arctic Berry Renewal Mask</p>
+            <p class="text-white/50 text-xs">Was £54.00 — now <strong class="text-red-400">£37.80</strong></p>
+          </div>
+        </li>
+        <li class="flex items-start gap-3 py-2 border-b border-white/10">
+          <span class="mt-0.5 w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 text-[10px] font-bold text-white" style="background:#EF4444;">!</span>
+          <div>
+            <p class="text-white text-sm font-medium">25% off Arctic Vitality Body Oil</p>
+            <p class="text-white/50 text-xs">Was £58.00 — now <strong class="text-red-400">£43.50</strong></p>
+          </div>
+        </li>
+        <li class="flex items-start gap-3 py-2 border-b border-white/10">
+          <span class="mt-0.5 w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 text-[10px] font-bold text-white" style="background:#4A7C59;"><i class="fas fa-truck text-[8px]"></i></span>
+          <div>
+            <p class="text-white text-sm font-medium">Free delivery on orders over £50</p>
+            <p class="text-white/50 text-xs">Automatically applied at checkout</p>
+          </div>
+        </li>
+        <li class="flex items-start gap-3 py-2">
+          <span class="mt-0.5 w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 text-[10px] font-bold text-white" style="background:#D97706;"><i class="fas fa-gift text-[8px]"></i></span>
+          <div>
+            <p class="text-white text-sm font-medium">Free sample with every order over £35</p>
+            <p class="text-white/50 text-xs">Choose your sample at checkout</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- MOBILE BOTTOM BAR -->
+  <div id="mob-bar" class="lg:hidden">
+    <div class="grid grid-cols-4">
+      <button onclick="openMob()" class="flex flex-col items-center justify-center py-2 gap-0.5 text-white/70 hover:text-white transition-colors hover:bg-white/10">
+        <i class="fas fa-bars text-base"></i>
+        <span class="text-[8px] uppercase tracking-widest">Menu</span>
+      </button>
+      <button onclick="toggleSearch()" class="flex flex-col items-center justify-center py-2 gap-0.5 text-white/70 hover:text-white transition-colors hover:bg-white/10">
+        <i class="fas fa-search text-base"></i>
+        <span class="text-[8px] uppercase tracking-widest">Search</span>
+      </button>
+      <button onclick="toggleCart()" class="flex flex-col items-center justify-center py-2 gap-0.5 text-white/70 hover:text-white transition-colors hover:bg-white/10 relative">
+        <span class="relative inline-block">
+          <i class="fas fa-shopping-bag text-base"></i>
+          <span class="absolute -top-1 -right-2 w-3.5 h-3.5 rounded-full text-[8px] font-bold flex items-center justify-center text-white" style="background:#4A7C59;">2</span>
+        </span>
+        <span class="text-[8px] uppercase tracking-widest">Cart</span>
+      </button>
+      <button onclick="toggleOffers()" id="offersBtn" class="flex flex-col items-center justify-center py-2 gap-0.5 text-white/70 hover:text-white transition-colors hover:bg-white/10 relative">
+        <span class="relative inline-block">
+          <i class="fas fa-tag text-base"></i>
+          <span id="offersDot" class="absolute -top-1 -right-2 w-3.5 h-3.5 rounded-full text-[8px] font-bold flex items-center justify-center text-white" style="background:#EF4444;">5</span>
+        </span>
+        <span class="text-[8px] uppercase tracking-widest">Offers</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- LIGHTBOX -->
+  <div id="lbox" onclick="closeLbox()">
+    <div class="relative max-w-lg w-full mx-4">
+      <div id="lboxInner" class="rounded-3xl overflow-hidden h-80 md:h-96 flex items-center justify-center relative" style="background:linear-gradient(135deg,#FBD3E9,#EC4899);">
+        <i class="fas fa-bottle-droplet text-white/30 text-8xl"></i>
+        <div class="absolute bottom-6 left-6 right-6">
+          <span id="lboxBadge" class="badge bwomen text-xs mb-2 inline-block">Women's Collection</span>
+          <p id="lboxTitle" class="fh text-2xl text-white">Super Performance Serum</p>
+          <p id="lboxSub" class="text-white/70 text-sm mt-1">@sophie.m · #DeLaBaie</p>
+        </div>
+      </div>
+      <button onclick="closeLbox()" class="absolute -top-4 -right-4 w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-xl hover:bg-gray-100 transition-colors">
+        <i class="fas fa-times text-gray-700"></i>
+      </button>
+      <div class="flex justify-between mt-4">
+        <button onclick="lboxMove(-1);event.stopPropagation()" class="w-10 h-10 rounded-full bg-white/20 text-white flex items-center justify-center hover:bg-white/30 transition-colors"><i class="fas fa-chevron-left text-sm"></i></button>
+        <button onclick="lboxMove(1);event.stopPropagation()" class="w-10 h-10 rounded-full bg-white/20 text-white flex items-center justify-center hover:bg-white/30 transition-colors"><i class="fas fa-chevron-right text-sm"></i></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCROLL TO TOP -->
+  <button id="scrBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})" class="w-11 h-11 rounded-full text-white flex items-center justify-center shadow-xl hover:opacity-90 transition-opacity" style="background:#4A7C59;">
+    <i class="fas fa-chevron-up text-sm"></i>
+  </button>
+
+  <script>
+    // ANNOUNCEMENT BAR
+    const annos = [
+      '🌿 95% Natural Ingredients — Clinically Researched. Ethically Sourced.',
+      '🚚 Free delivery on all orders over £50 — Shop the full Arctic range',
+      '✨ Subscribe &amp; receive 15% off your first order — Use code DELABAIE15',
+      '🫐 Inspired by the berry. Loved by your skin. Discover DeLaBaie today.',
+      '🤲 Hand-crafted &amp; sold direct to you — No intermediaries. Fair prices.'
+    ];
+    let annoIdx = 0;
+
+    function showAnno() {
+      const el = document.getElementById('annoText');
+      if (!el) return;
+      el.style.opacity = 0;
+      setTimeout(() => {
+        el.innerHTML = annos[annoIdx % annos.length];
+        el.style.opacity = 1;
+        el.style.transition = 'opacity .4s';
+        annoIdx++;
+      }, 200);
+    }
+
+    function dismissAnno() {
+      document.getElementById('annoBar').style.display = 'none';
+    }
+    showAnno();
+    setInterval(showAnno, 5000);
+    // MOBILE MENU
+    function openMob() {
+      document.getElementById('mob-menu').classList.add('open');
+      document.getElementById('overlay').classList.add('open');
+    }
+
+    function closeMob() {
+      document.getElementById('mob-menu').classList.remove('open');
+      document.getElementById('overlay').classList.remove('open');
+    }
+    document.getElementById('mobToggle').onclick = openMob;
+    // ACCORDION
+    function toggleAcc(btn) {
+      const body = btn.nextElementSibling;
+      const icon = btn.querySelector('i');
+      body.classList.toggle('open');
+      icon.style.transform = body.classList.contains('open') ? 'rotate(180deg)' : '';
+    }
+    // SEARCH
+    function toggleSearch() {
+      const p = document.getElementById('srch-panel');
+      p.classList.toggle('open');
+      if (p.classList.contains('open')) setTimeout(() => document.getElementById('srchInput').focus(), 400);
+    }
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') {
+        document.getElementById('srch-panel').classList.remove('open');
+        document.getElementById('cart-panel').classList.remove('open');
+        document.getElementById('overlay').classList.remove('open');
+        document.getElementById('mob-menu').classList.remove('open');
+        document.getElementById('lbox').classList.remove('open');
+      }
+    });
+    // CART
+    function toggleCart() {
+      document.getElementById('cart-panel').classList.toggle('open');
+    }
+    // HERO SLIDER
+    let heroIdx = 0,
+      heroPause = false,
+      heroTimer, progTimer;
+    const heroTotal = 3;
+
+    function heroGo(n) {
+      heroIdx = ((n % heroTotal) + heroTotal) % heroTotal;
+      document.getElementById('heroTrack').style.transform = `translateX(-${heroIdx*100}%)`;
+      document.querySelectorAll('.hdot').forEach((d, i) => d.classList.toggle('act', i === heroIdx));
+      resetProg();
+    }
+
+    function heroMove(dir) {
+      heroGo(heroIdx + dir);
+    }
+
+    function resetProg() {
+      const bar = document.getElementById('progBar');
+      bar.classList.remove('run');
+      bar.style.transition = 'none';
+      bar.style.transform = 'scaleX(0)';
+      clearTimeout(progTimer);
+      progTimer = setTimeout(() => {
+        bar.style.transition = 'transform 5s linear';
+        bar.classList.add('run');
+      }, 50);
+    }
+    setInterval(() => {
+      if (!heroPause) heroMove(1);
+    }, 5000);
+    resetProg();
+    // TESTIMONIALS
+    let testiIdx = 0;
+    const testiTotal = 5;
+
+    function buildTestiDots() {
+      const c = document.getElementById('testiDots');
+      c.innerHTML = '';
+      for (let i = 0; i < testiTotal; i++) {
+        const d = document.createElement('div');
+        d.className = 'hdot';
+        d.style.background = i === 0 ? '#4A7C59' : 'rgba(0,0,0,.2)';
+        d.style.border = 'none';
+        d.onclick = () => testiGo(i);
+        c.appendChild(d);
+      }
+    }
+
+    function testiGo(n) {
+      testiIdx = ((n % testiTotal) + testiTotal) % testiTotal;
+      document.getElementById('testiTrack').style.transform = `translateX(-${testiIdx*100}%)`;
+      document.querySelectorAll('#testiDots div').forEach((d, i) => {
+        d.style.background = i === testiIdx ? '#4A7C59' : 'rgba(0,0,0,.15)';
+      });
+    }
+
+    function testiMove(dir) {
+      testiGo(testiIdx + dir);
+    }
+    buildTestiDots();
+    setInterval(() => testiMove(1), 7000);
+    // LIGHTBOX
+    const lboxData = [{
+        title: 'Super Performance Serum',
+        sub: '@sophie.m · #DeLaBaie',
+        badge: 'Women',
+        icon: 'fa-bottle-droplet',
+        bg: 'linear-gradient(135deg,#FBD3E9,#EC4899)'
+      },
+      {
+        title: 'Cloudberry Body Oil',
+        sub: '@arctic.skin · #DeLaBaie',
+        badge: 'Unisex',
+        icon: 'fa-circle-dot',
+        bg: 'linear-gradient(135deg,#FDE68A,#D97706)'
+      },
+      {
+        title: 'Hand & Nail Cream',
+        sub: '@wendy.naturals · #DeLaBaie',
+        badge: 'Unisex',
+        icon: 'fa-jar',
+        bg: 'linear-gradient(135deg,#BBF7D0,#22C55E)'
+      },
+      {
+        title: 'Sea Buckthorn Elixir',
+        sub: '@arctic.rituals · #DeLaBaie',
+        badge: 'Women',
+        icon: 'fa-droplet',
+        bg: 'linear-gradient(135deg,#FCA5A5,#EF4444)'
+      },
+      {
+        title: 'Arctic Winter Collection',
+        sub: '@cold.beauty · #DeLaBaie',
+        badge: 'Unisex',
+        icon: 'fa-snowflake',
+        bg: 'linear-gradient(135deg,#0a1a12,#4A7C59)'
+      },
+      {
+        title: 'Arctic Berry Renewal Mask',
+        sub: '@luca.m · #DeLaBaie',
+        badge: 'Women',
+        icon: 'fa-flask',
+        bg: 'linear-gradient(135deg,#6B2D72,#C0576E)'
+      },
+      {
+        title: 'Revitalising Face Wash',
+        sub: '@james.fit · #DeLaBaieHomme',
+        badge: 'Men',
+        icon: 'fa-pump-soap',
+        bg: 'linear-gradient(135deg,#BFDBFE,#3B82F6)'
+      },
+      {
+        title: "Children's Sun Care SPF",
+        sub: '@mum.notes · #DeLaBaieKids',
+        badge: 'Children',
+        icon: 'fa-sun',
+        bg: 'linear-gradient(135deg,#7C3D12,#FDE68A)'
+      },
+      {
+        title: 'Foot Balm Supreme',
+        sub: '@wellbeing.daily · #DeLaBaie',
+        badge: 'Unisex',
+        icon: 'fa-leaf',
+        bg: 'linear-gradient(135deg,#1C4A30,#6FB87F)'
+      },
+    ];
+    const badgeCls = {
+      Women: 'bwomen',
+      Men: 'bmen',
+      Children: 'bchild',
+      Unisex: 'bunisex'
+    };
+    let lboxIdx = 0;
+
+    function openLbox(n) {
+      lboxIdx = n;
+      renderLbox();
+      document.getElementById('lbox').classList.add('open');
+    }
+
+    function closeLbox() {
+      document.getElementById('lbox').classList.remove('open');
+    }
+
+    function lboxMove(dir) {
+      lboxIdx = ((lboxIdx + dir) % lboxData.length + lboxData.length) % lboxData.length;
+      renderLbox();
+    }
+
+    function renderLbox() {
+      const d = lboxData[lboxIdx];
+      const inner = document.getElementById('lboxInner');
+      inner.style.background = d.bg;
+      inner.querySelector('i').className = `fas ${d.icon} text-white/30 text-8xl`;
+      document.getElementById('lboxTitle').textContent = d.title;
+      document.getElementById('lboxSub').textContent = d.sub;
+      const badge = document.getElementById('lboxBadge');
+      badge.textContent = d.badge;
+      badge.className = 'badge ' + badgeCls[d.badge] + ' text-xs mb-2 inline-block';
+    }
+    // TABS
+    function switchTab(id, btn) {
+      document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('act'));
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('act'));
+      document.getElementById('tab-' + id).classList.add('act');
+      btn.classList.add('act');
+      document.querySelectorAll('#tab-' + id + ' .reveal').forEach((el, i) => {
+        el.classList.remove('vis');
+        setTimeout(() => el.classList.add('vis'), i * 80 + 50);
+      });
+    }
+    // SCROLL REVEAL
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) e.target.classList.add('vis');
+      });
+    }, {
+      threshold: 0.1
+    });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+    // SCROLL TO TOP
+    window.addEventListener('scroll', () => {
+      document.getElementById('scrBtn').classList.toggle('show', window.scrollY > 600);
+    });
+    // OFFERS PANEL
+    let offersOpen = false;
+
+    function toggleOffers() {
+      offersOpen = !offersOpen;
+      const panel = document.getElementById('offers-panel');
+      const btn = document.getElementById('offersBtn');
+      panel.classList.toggle('open', offersOpen);
+      btn.classList.toggle('text-white', offersOpen);
+      btn.style.background = offersOpen ? 'rgba(255,255,255,.08)' : '';
+    }
+    // Close offers if cart or search opens
+    const _origToggleCart = toggleCart;
+    toggleCart = function() {
+      offersOpen && toggleOffers();
+      _origToggleCart();
+    };
+    const _origToggleSearch = toggleSearch;
+    toggleSearch = function() {
+      offersOpen && toggleOffers();
+      _origToggleSearch();
+    };
+
+    function subForm(e) {
+      e.preventDefault();
+      document.getElementById('subMsg').style.display = 'block';
+      const inp = document.getElementById('emailInput');
+      inp.value = '';
+      inp.placeholder = 'Thank you! Check your inbox.';
+    }
+    // INITIAL TAB REVEAL
+    setTimeout(() => {
+      document.querySelectorAll('.tab-pane.act .reveal').forEach((el, i) => {
+        setTimeout(() => el.classList.add('vis'), i * 100 + 300);
+      });
+    }, 400);
+  </script>
+</body>
+
+</html>
+    
+  </body>
+  
+</html>
